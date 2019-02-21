@@ -142,91 +142,78 @@
 
     static double width(){
         double width;
-        System.out.print("Insert width: ");
+        System.out.print("\nInsert width: ");
         return width = sc.nextDouble();
     }
 
     static double length(){
         double length;
-        System.out.print("Insert length: ");
+        System.out.print("\nInsert length: ");
         return length = sc.nextDouble();
     }
 
-    //shape methods
-    static void rectangle(double height, double width){
-        double area;
-        double parameter;
-
-        area = height * width;
-        parameter = sqd(height)+sqd(width);
-
-        System.out.print("the rectangle area is "+area);
-        System.out.print("\nthe rectangle parameter is "+parameter);  
+    static void displayShape(String shapetype){
+        System.out.print("\nYou have selected "+shapetype);
     }
 
-    static void square(double height){
-        double area;
-        double parameter;
-
-        area = height * height;
-        parameter = sqd(height)+sqd(height);
-
-        System.out.print("the square area is "+area);
-        System.out.print("\nthe square parameter is "+parameter);
+    static void displayShapeEnd(String shapetype, double area, double parameter){
+        System.out.print("the "+shapetype+" area is "+area);
+        System.out.print("\nthe "+shapetype+" parameter is "+parameter); 
     }
 
     public static void main (String args []){
         //declairation
+        char render;
         int shapeSelector;
-        char loop;
+        double area;
+        double parameter;
+        String shapetype = "null";
 
         Scanner sc = new Scanner (System.in);
 
-        do{
-        System.out.print("Welcome to 2D or 3D Calculator!");
-        System.out.print("\n2D options:\t\t3D options:");
-        System.out.print("\n\n1. Rectangle\t\t6. Cylinder");
-        System.out.print("\n2. Square\t\t7. Pyramid");
-        System.out.print("\n3. Triangle\t\t8. Sphere");
-        System.out.print("\n4. Circle\t\t9. Cuboid");
-        System.out.print("\n5. Trapezium\t\t10. Cone\n\n");
-        System.out.print("\nTo select a shape, please insert the number for the corresponding shape: ");
-        shapeSelector = sc.nextInt();
-        
-        switch (shapeSelector){
+        System.out.print("Would you like to do a calculation on 2D or 3D object?: ");
+        render = sc.next().charAt(0);
 
-            case 1: System.out.print("You have selected a rectangle.\n");
-                    double recheight = height();
-                    double recwidth = width();
-                    rectangle(recheight, recwidth);
+        if(render == '2'){
+            System.out.print("You have selected 2D type");
+            System.out.print("\nPlease select your shape");
+            System.out.print("\n1. Rectangle");
+            System.out.print("\n2. Square");
+            System.out.print("\n3. Triangle");
+            System.out.print("\n4. Circle");
+            System.out.print("\n5. Trapezium");
+            System.out.print("\nEnter the shape number: ");
+            shapeSelector = sc.nextInt();
 
-            break;
-            case 2: System.out.print("You have selected a square.\n");
-                    double squareheight = height();
-                    square(squareheight);
+                switch(shapeSelector){
+                    case 1: shapetype = "Rectangle";
+                            displayShape(shapetype);
+                            double rectangleWidth = width();
+                            double rectangleHeight = height();
 
-            break;
-            case 3: System.out.print("You have selected a triangle.\n");
-                System.out.print(sqrt(900));
-            break;
-            case 4: System.out.print("You have selected a circle.\n");
-            break;
-            case 5: System.out.print("You have selected a trapezium.\n");
-            break;
-            case 6:
-            break;
-            case 7:
-            break;
-            case 8:
-            break;
-            case 9:
-            break;
-            case 10:
-            break;
+                            area = rectangleHeight * rectangleWidth;
+                            parameter = sqd(rectangleHeight)+sqd(rectangleWidth);
+
+                            displayShapeEnd(shapetype, area, parameter);
+                          
+                    break;
+                    case 2: displayShape("Square");
+                    break;
+                    case 3: displayShape("Triangle");
+                    break;
+                    case 4: displayShape("Circle");
+                    break;
+                    case 5: displayShape("Trapezium");
+                    break;
+                }
+
+
         }
-        System.out.print("\nWould you like to try again? [Y/N]");
-        loop = sc.next().charAt(0);        
-        }while (loop !='N');
+
+        else if(render == '3'){
+            System.out.print("You have selected 3D shape");
+        }
+
 
     }
 
