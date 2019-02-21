@@ -145,16 +145,30 @@
 
     //reuseable width method
     static double widthInput(){
-        double width;
+        double widthOutput;
         System.out.print("\nInsert width: ");
-        return width = sc.nextDouble();
+        return widthOutput = sc.nextDouble();
     }
 
     //reuseable length method
     static double lengthInput(){
-        double length;
+        double lengthOutput;
         System.out.print("\nInsert length: ");
-        return length = sc.nextDouble();
+        return lengthOutput = sc.nextDouble();
+    }
+
+    //reuseable base method
+    static double baseInput(){
+        double baseOutput;
+        System.out.print("\nInsert base: ");
+        return baseOutput = sc.nextDouble();
+    }
+
+    //reuseable radius method
+    static double radiusInput(){
+        double baseOutput;
+        System.out.print("\nInsert base: ");
+        return radiusOutput = sc.nextDouble();
     }
 
 
@@ -178,9 +192,11 @@
         double area;
         double parameter;
         String shapetype = "null";
+        double base;
         double width;
         double height;
         double radious;
+        double PI = 3.14159265;
 
         System.out.print("Would you like to do a calculation on 2D or 3D object?: ");
         render = sc.next().charAt(0);
@@ -208,7 +224,7 @@
                             displayShapeEnd(shapetype, area, parameter);
                           
                     break;
-                    case 2: displayShape("Square");
+                    case 2: shapetype = "Square";
                             displayShape(shapetype);
                             width = widthInput();
                             height = HeightInput();
@@ -219,7 +235,15 @@
                             displayShapeEnd(shapetype, area, parameter);
 
                     break;
-                    case 3: displayShape("Triangle");
+                    case 3: shapetype = "Triangle";
+                            displayShape(shapetype);
+                            base = baseInput();
+                            height = HeightInput();
+
+                            area = 1/2 * (base * height);
+                            parameter = 0;
+
+                            displayShapeEnd(shapetype, area, parameter);
                     break;
                     case 4: displayShape("Circle");
                     break;
