@@ -107,6 +107,7 @@
  */
 
  import java.util.*;
+ import java.lang.Math.*;
  public class MiniProject{
 
     static Scanner sc = new Scanner (System.in);
@@ -133,29 +134,38 @@
         return sqrtvalue;
     }
 
-    //reuseable variable methods
-    static double height(){
+
+
+    //reuseable height method
+    static double HeightInput(){
         double height;
         System.out.print("Insert height: ");
         return height = sc.nextDouble();
     }
 
-    static double width(){
+    //reuseable width method
+    static double widthInput(){
         double width;
         System.out.print("\nInsert width: ");
         return width = sc.nextDouble();
     }
 
-    static double length(){
+    //reuseable length method
+    static double lengthInput(){
         double length;
         System.out.print("\nInsert length: ");
         return length = sc.nextDouble();
     }
 
+
+
+
+    //reuseable display method
     static void displayShape(String shapetype){
         System.out.print("\nYou have selected "+shapetype);
     }
 
+    ////reuseable display at the end method
     static void displayShapeEnd(String shapetype, double area, double parameter){
         System.out.print("the "+shapetype+" area is "+area);
         System.out.print("\nthe "+shapetype+" parameter is "+parameter); 
@@ -168,8 +178,9 @@
         double area;
         double parameter;
         String shapetype = "null";
-
-        Scanner sc = new Scanner (System.in);
+        double width;
+        double height;
+        double radious;
 
         System.out.print("Would you like to do a calculation on 2D or 3D object?: ");
         render = sc.next().charAt(0);
@@ -188,16 +199,25 @@
                 switch(shapeSelector){
                     case 1: shapetype = "Rectangle";
                             displayShape(shapetype);
-                            double rectangleWidth = width();
-                            double rectangleHeight = height();
+                            width = widthInput();
+                            height = HeightInput();
 
-                            area = rectangleHeight * rectangleWidth;
-                            parameter = sqd(rectangleHeight)+sqd(rectangleWidth);
+                            area = height * width;
+                            parameter = sqd(height)+sqd(width);
 
                             displayShapeEnd(shapetype, area, parameter);
                           
                     break;
                     case 2: displayShape("Square");
+                            displayShape(shapetype);
+                            width = widthInput();
+                            height = HeightInput();
+
+                            area = height * width;
+                            parameter = sqd(height)+sqd(width);
+
+                            displayShapeEnd(shapetype, area, parameter);
+
                     break;
                     case 3: displayShape("Triangle");
                     break;
