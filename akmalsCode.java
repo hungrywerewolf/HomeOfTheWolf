@@ -134,7 +134,7 @@ import java.util.*;
 
 
 
-public class CalculateShapes
+public class akmalsCode
 
 {
 
