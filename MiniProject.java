@@ -191,11 +191,8 @@
         double area;
         double parameter;
         String shapetype = "null";
-        double base;
         double width;
         double height;
-        double radious;
-        double PI = 3.14159265;
 
         System.out.print("Would you like to do a calculation on 2D or 3D object?: ");
         render = sc.next().charAt(0);
@@ -214,11 +211,11 @@
                 switch(shapeSelector){
                     case 1: shapetype = "Rectangle";
                             displayShape(shapetype);
-                            width = widthInput();
-                            height = heightInput();
+                            double rectangleWidth = widthInput();
+                            double rectangleHeight = heightInput();
 
-                            area = height * width;
-                            parameter = sqd(height)+sqd(width);
+                            area = rectangleHeight * rectangleWidth;
+                            parameter = sqd(rectangleHeight)+sqd(rectangleWidth);
 
                             displayShapeEnd(shapetype, area, parameter);
                           
