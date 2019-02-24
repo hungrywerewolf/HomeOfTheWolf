@@ -137,10 +137,10 @@
 
 
     //reuseable height method
-    static double HeightInput(){
-        double height;
+    static double heightInput(){
+        double heightOutput;
         System.out.print("Insert height: ");
-        return height = sc.nextDouble();
+        return heightOutput = sc.nextDouble();
     }
 
     //reuseable width method
@@ -157,18 +157,18 @@
         return lengthOutput = sc.nextDouble();
     }
 
-    static double radius(){
+    static double radiusInput(){
         double radiusOutput;
         System.out.print("\nInsert radius: ");
         return radiusOutput = sc.nextDouble();
     }
 
-    static double top(){
+    static double topInput(){
         double topOutput;
         System.out.print("\nInsert top value: ");
         return topOutput = sc.nextDouble();
     }
-    static double base(){
+    static double baseInput(){
         double baseOutput;
         System.out.print("\nInsert base value: ");
         return baseOutput = sc.nextDouble();
@@ -215,7 +215,7 @@
                     case 1: shapetype = "Rectangle";
                             displayShape(shapetype);
                             width = widthInput();
-                            height = HeightInput();
+                            height = heightInput();
 
                             area = height * width;
                             parameter = sqd(height)+sqd(width);
@@ -225,8 +225,8 @@
                     break;
                     case 2: shapetype = "Square";
                             displayShape(shapetype);
-                            double squareWidth = width();
-                            double squareHeight = height();
+                            double squareWidth = widthInput();
+                            double squareHeight = heightInput();
 
                             area = squareHeight * squareWidth;
                             parameter = sqd(squareHeight)+sqd(squareWidth);
@@ -236,8 +236,8 @@
                     break;
                     case 3: shapetype = "Triangle";
                             displayShape(shapetype);
-                            double triangleLength = length();
-                            double triangleHeight = height();
+                            double triangleLength = lengthInput();
+                            double triangleHeight = heightInput();
 
                             area = ((triangleLength * triangleHeight)/2);
                             parameter = 0;
@@ -247,7 +247,7 @@
                     break;
                     case 4: shapetype = "Circle";
                             displayShape(shapetype);
-                            double circleRadius = radius();
+                            double circleRadius = radiusInput();
 
                             area = Math.PI * circleRadius;
                             parameter = 0;
@@ -257,9 +257,9 @@
                     break;
                     case 5: shapetype = "Trapezium";
                             displayShape(shapetype);
-                            double trapeziumTop = top();
-                            double trapeziumBase = base();
-                            double trapeziumHeight = height();
+                            double trapeziumTop = topInput();
+                            double trapeziumBase = baseInput();
+                            double trapeziumHeight = heightInput();
 
                             area = (((trapeziumTop+trapeziumBase)/2)*trapeziumHeight);
                             parameter = 0;
