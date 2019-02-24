@@ -152,6 +152,23 @@
         return length = sc.nextDouble();
     }
 
+    static double radius(){
+        double radiusOutput;
+        System.out.print("\nInsert radius: ");
+        return radiusOutput = sc.nextDouble();
+    }
+
+    static double top(){
+        double topOutput;
+        System.out.print("\nInsert top value: ");
+        return topOutput = sc.nextDouble();
+    }
+    static double base(){
+        double baseOutput;
+        System.out.print("\nInsert base value: ");
+        return baseOutput = sc.nextDouble();
+    }
+
     static void displayShape(String shapetype){
         System.out.print("\nYou have selected "+shapetype);
     }
@@ -202,16 +219,44 @@
                             double squareWidth = width();
                             double squareHeight = height();
 
-                    area = squareHeight * squareWidth;
-                    parameter = sqd(squareHeight)+sqd(squareWidth);
+                            area = squareHeight * squareWidth;
+                            parameter = sqd(squareHeight)+sqd(squareWidth);
 
-                    displayShapeEnd(shapetype, area, parameter);
+                            displayShapeEnd(shapetype, area, parameter);
+
                     break;
-                    case 3: displayShape("Triangle");
+                    case 3: shapetype = "Triangle";
+                            displayShape(shapetype);
+                            double triangleLength = length();
+                            double triangleHeight = height();
+
+                            area = ((triangleLength * triangleHeight)/2);
+                            parameter = 0;
+
+                            displayShapeEnd(shapetype, area, parameter);
+
                     break;
-                    case 4: displayShape("Circle");
+                    case 4: shapetype = "Circle";
+                            displayShape(shapetype);
+                            double circleRadius = radius();
+
+                            area = Math.PI * circleRadius;
+                            parameter = 0;
+
+                            displayShapeEnd(shapetype, area, parameter);
+
                     break;
-                    case 5: displayShape("Trapezium");
+                    case 5: shapetype = "Trapezium";
+                            displayShape(shapetype);
+                            double trapeziumTop = top();
+                            double trapeziumBase = base();
+                            double trapeziumHeight = height();
+
+                            area = (((trapeziumTop+trapeziumBase)/2)*trapeziumHeight);
+                            parameter = 0;
+
+                            displayShapeEnd(shapetype, area, parameter);
+
                     break;
                 }
 
