@@ -197,7 +197,15 @@
                             displayShapeEnd(shapetype, area, parameter);
                           
                     break;
-                    case 2: displayShape("Square");
+                    case 2: shapetype = "Square";
+                            displayShape(shapetype);
+                            double squareWidth = width();
+                            double squareHeight = height();
+
+                    area = squareHeight * squareWidth;
+                    parameter = sqd(squareHeight)+sqd(squareWidth);
+
+                    displayShapeEnd(shapetype, area, parameter);
                     break;
                     case 3: displayShape("Triangle");
                     break;
