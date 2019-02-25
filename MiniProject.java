@@ -213,10 +213,10 @@
 
 
     //Prompt user for end result for 2D shape
-    static void displayShapeEnd2D(String shapetype, double areaOnput, double parameterOnput){
+    static void displayShapeEnd2D(String shapetype, double areaOutput, double parameterOutput){
 
-        System.out.print("the " + shapetype + " area is " + areaOnput);
-        System.out.print("\nthe " + shapetype + " parameter is " + parameterOnput); 
+        System.out.print("the " + shapetype + " area is " + areaOutput);
+        System.out.print("\nthe " + shapetype + " parameter is " + parameterOutput); 
     }
 
 
