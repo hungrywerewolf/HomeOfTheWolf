@@ -259,99 +259,105 @@
 
             if(render == '2'){
 
-            System.out.print("\n2D shape has been selected!");
-            System.out.print("\n\n-----------------------------");
-            System.out.print("\nPlease select your shape:");
-            System.out.print("\n1. Rectangle\t4. Circle");
-            System.out.print("\n2. Square\t5. Trapezium");
-            System.out.print("\n3. Triangle");
-            System.out.print("\n-----------------------------");
-            System.out.print("\n\nEnter the shape number: ");
-            shapeSelector = sc.nextInt();
-
-            switch(shapeSelector){
-
-                case 1: displayShape("Rectangle");
-                    double rectangleWidth = widthInput();
-                        double rectangleHeight = heightInput();
-
-                    area = rectangleHeight * rectangleWidth;
-                    parameter = sqd(rectangleHeight)+sqd(rectangleWidth);
-
-                    displayShapeEnd2D("Rectangle", area, parameter);
-                          
-
-
-                break;
-                case 2: displayShape("Square");
-                    double squareWidth = widthInput();
-                    double squareHeight = heightInput();
-
-                    area = squareHeight * squareWidth;
-                    parameter = sqd(squareHeight)+sqd(squareWidth);
-
-                    displayShapeEnd2D("Square", area, parameter);
-
-
-
-                break;
-                case 3: displayShape("Triangle");
-                    double triangleLength = lengthInput();
-                    double triangleHeight = heightInput();
-
-                    area = ((triangleLength * triangleHeight)/2);
-                    parameter = 0;
-
-                    displayShapeEnd2D("Triangle", area, parameter);
-
-
-
-                break;
-                case 4: displayShape("Circle");
-                    double circleRadius = radiusInput();
-
-                    area = Math.PI * circleRadius;
-                    parameter = 0;
-
-                    displayShapeEnd2D("Circle", area, parameter);
-
-
-
-                break;
-                case 5: displayShape("Trapezium");
-                    double trapeziumTop = topInput();
-                    double trapeziumBase = baseInput();
-                    double trapeziumHeight = heightInput();
-
-                    area = (((trapeziumTop+trapeziumBase)/2)*trapeziumHeight);
-                    parameter = 0;
-
-                    displayShapeEnd2D("Trapezium", area, parameter);
-
-
-
-                break;
-                }
-
-
-        }  
-
-
-        else if(render == '3'){
-
-            System.out.print("You have selected 3D shape");
-            System.out.print("\nPlease select your shape");
-            System.out.print("\n1. Cylinder");
-            System.out.print("\n2. Pyramid");
-            System.out.print("\n3. Sphere");
-            System.out.print("\n4. Cuboid");
-            System.out.print("\n5. Cone");
-            System.out.print("\nEnter the shape number: ");
-            shapeSelector = sc.nextInt();
+                System.out.print("\n2D shape has been selected!");
+                System.out.print("\n\n-----------------------------");
+                System.out.print("\nPlease select your shape:");
+                System.out.print("\n1. Rectangle\t4. Circle");
+                System.out.print("\n2. Square\t5. Trapezium");
+                System.out.print("\n3. Triangle");
+                System.out.print("\n-----------------------------");
+                System.out.print("\n\nEnter the shape number: ");
+                shapeSelector = sc.nextInt();
 
                 switch(shapeSelector){
 
-                    case 1: displayShape("Cylinder");
+                    case 1: 
+                        displayShape("Rectangle");
+                        double rectangleWidth = widthInput();
+                        double rectangleHeight = heightInput();
+
+                        area = rectangleHeight * rectangleWidth;
+                        parameter = sqd(rectangleHeight)+sqd(rectangleWidth);
+
+                        displayShapeEnd2D("Rectangle", area, parameter);
+                          
+
+
+                    break;
+                    case 2: 
+                        displayShape("Square");
+                        double squareWidth = widthInput();
+                        double squareHeight = heightInput();
+
+                        area = squareHeight * squareWidth;
+                        parameter = sqd(squareHeight)+sqd(squareWidth);
+
+                        displayShapeEnd2D("Square", area, parameter);
+
+
+
+                    break;
+                    case 3: 
+                        displayShape("Triangle");
+                        double triangleLength = lengthInput();
+                        double triangleHeight = heightInput();
+
+                        area = ((triangleLength * triangleHeight)/2);
+                        parameter = 0;
+
+                        displayShapeEnd2D("Triangle", area, parameter);
+
+
+
+                    break;
+                    case 4: 
+                        displayShape("Circle");
+                        double circleRadius = radiusInput();
+
+                        area = Math.PI * circleRadius;
+                        parameter = 0;
+
+                        displayShapeEnd2D("Circle", area, parameter);
+
+
+
+                    break;
+                    case 5: 
+                        displayShape("Trapezium");
+                        double trapeziumTop = topInput();
+                        double trapeziumBase = baseInput();
+                        double trapeziumHeight = heightInput();
+
+                        area = (((trapeziumTop+trapeziumBase)/2)*trapeziumHeight);
+                        parameter = 0;
+
+                        displayShapeEnd2D("Trapezium", area, parameter);
+
+
+
+                    break;
+                }
+
+
+            }  
+
+
+            else if(render == '3'){
+
+                System.out.print("You have selected 3D shape");
+                System.out.print("\nPlease select your shape");
+                System.out.print("\n1. Cylinder");
+                System.out.print("\n2. Pyramid");
+                System.out.print("\n3. Sphere");
+                System.out.print("\n4. Cuboid");
+                System.out.print("\n5. Cone");
+                System.out.print("\nEnter the shape number: ");
+                shapeSelector = sc.nextInt();
+
+                switch(shapeSelector){
+
+                    case 1: 
+                        displayShape("Cylinder");
                         double cylinderHeight = heightInput();
                         double cylinderRadius = radiusInput();
 
@@ -364,7 +370,8 @@
 
 
                     break;
-                    case 2: displayShape("Pyramid");
+                    case 2: 
+                        displayShape("Pyramid");
                         double pyramidWidth = widthInput();
                         double pyramidHeight = heightInput();
                         double pyramidBase = baseInput();
@@ -377,7 +384,8 @@
 
 
                     break;
-                    case 3: displayShape("Sphere");
+                    case 3: 
+                        displayShape("Sphere");
                         double sphereRadius = radiusInput();
 
                         volume = 4 / 3 * (Math.PI * (sphereRadius * sphereRadius * sphereRadius));
@@ -388,7 +396,8 @@
 
 
                     break;
-                    case 4: displayShape("Cuboid");
+                    case 4: 
+                        displayShape("Cuboid");
                         double cuboidBase = radiusInput();
                         double cuboidHeight = heightInput();
                         double cuboidWidth = widthInput();
@@ -397,8 +406,11 @@
 
                         displayShapeEnd3D("Cuboid", surfaceArea, 0);
 
+
+
                     break;
-                    case 5: displayShape("Cone");
+                    case 5: 
+                        displayShape("Cone");
                         double coneRadius = radiusInput();
                         double coneHeight = heightInput();
 
@@ -410,22 +422,24 @@
 
 
                     break;
-                    }
-
-
                 }
 
+
+            }
+
             
-                while(errorMessage)
-                {
+            while(errorMessage){
+
                 System.out.print("\nDo you wish to continue? [Y or N]: ");
                 choice = sc.next().charAt(0);
                 if (choice=='y' || choice =='Y' ||choice=='n' || choice =='N')
-                    errorMessage = false;
-                else 
-                    {System.out.print("Invalid Input!");
-                    errorMessage = true;}
-                }
+                errorMessage = false;
+
+                else {
+                System.out.print("Invalid Input!");
+                errorMessage = true;}
+            }
+
         }while(choice == 'Y' || choice == 'y');
 
         System.out.print("Thank you for using Shape Calculator, have a nice day!");
