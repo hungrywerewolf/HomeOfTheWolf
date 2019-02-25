@@ -259,6 +259,7 @@
 
             if(render == '2'){
 
+                /************ Main menu for 2D Shape ************/
                 System.out.print("\n2D shape has been selected!");
                 System.out.print("\n\n-----------------------------");
                 System.out.print("\nPlease select your shape:");
@@ -341,13 +342,16 @@
 
             else if(render == '3'){
 
-                System.out.print("You have selected 3D shape");
+                /********* Main menu for 3D shape ***********/
+                System.out.print("3D shape has been selected!");
+                System.out.print("\n\n-----------------------------");
                 System.out.print("\nPlease select your shape");
                 System.out.print("\n1. Cylinder");
                 System.out.print("\n2. Pyramid");
                 System.out.print("\n3. Sphere");
                 System.out.print("\n4. Cuboid");
                 System.out.print("\n5. Cone");
+                System.out.print("\n-----------------------------");
                 System.out.print("\nEnter the shape number: ");
                 shapeSelector = sc.nextInt();
 
@@ -433,7 +437,7 @@
                 errorMessage = true;}
             }
 
-        }while(choice == 'Y' || choice == 'y');
+        }while(choice == 'Y' || choice == 'y'); //End loop
 
         System.out.print("Thank you for using Shape Calculator, have a nice day!");
 
