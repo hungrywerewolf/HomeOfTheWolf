@@ -213,19 +213,19 @@
 
 
     //Prompt user for end result for 2D shape
-    static void displayShapeEnd2D(String shapetype, double areaInput, double parameterInput){
+    static void displayShapeEnd2D(String shapetype, double areaOnput, double parameterOnput){
 
-        System.out.print("the " + shapetype + " area is " + areaInput);
-        System.out.print("\nthe " + shapetype + " parameter is " + parameterInput); 
+        System.out.print("the " + shapetype + " area is " + areaOnput);
+        System.out.print("\nthe " + shapetype + " parameter is " + parameterOnput); 
     }
 
 
 
     //Prompt user for end result for 3D shape
-    static void displayShapeEnd3D(String shapetype, double volumeInput, double surfaceAreaInput){
+    static void displayShapeEnd3D(String shapetype, double volumeOnput, double surfaceAreaOnput){
 
-        System.out.print("The " + shapetype + " volume is " + volumeInput);
-        System.out.print("\nThe " + shapetype + " surface area is " + surfaceAreaInput);
+        System.out.print("The " + shapetype + " volume is " + volumeOnput);
+        System.out.print("\nThe " + shapetype + " surface area is " + surfaceAreaOnput);
     } 
     
     
@@ -283,7 +283,7 @@
                     break;
 
 
-                    
+
                     case 2: 
                         displayShape("Square");
                         double squareWidth = widthInput();
