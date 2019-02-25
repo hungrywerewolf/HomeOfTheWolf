@@ -110,11 +110,11 @@
  import java.lang.Math.*;
 
 
- public class MiniProject{
+ public class shapeCalculator{
 
     static Scanner sc = new Scanner (System.in);
 
-    public MiniProject(){}
+    public shapeCalculator(){}
 
 
     //math equation methods
