@@ -199,11 +199,15 @@
         String shapetype = "null";
         double width;
         double height;
+        boolean loop = true;
+        char choice = 'y';
 
         //3D declairation
         double volume;
         double surfaceArea;
 
+
+        do{
         System.out.print("Would you like to do a calculation on 2D or 3D object?: ");
         render = sc.next().charAt(0);
 
@@ -333,17 +337,26 @@
                             double coneRadius = radiusInput();
                             double coneHeight = heightInput();
 
-                            area = Math.PI * coneRadius *
-                            (coneRadius + Math.sqrt(
-                                                (coneHeight * coneHeight) +
-                                                (coneRadius * coneRadius)));
+                            area = Math.PI * coneRadius * (coneRadius + Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)));
                             parameter = 0;
 
                             displayShapeEnd3D("Cone", area, parameter);
 
                     break;
+                    }
                 }
-        }
+
+                while(loop)
+                {
+                System.out.print("\nDo you wish to continue? [Y or N]: ");
+                choice = sc.next().charAt(0);
+                if (choice=='y' || choice =='Y' ||choice=='n' || choice =='N')
+                    loop = false;
+                else 
+                    {System.out.print("Invalid input");
+                    loop = true;}
+                }
+        }while(choice != 'N' || choice != 'n');
 
 
     }
