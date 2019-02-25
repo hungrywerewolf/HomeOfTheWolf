@@ -280,10 +280,10 @@
                         parameter = sqd(rectangleHeight)+sqd(rectangleWidth);
 
                         displayShapeEnd2D("Rectangle", area, parameter);
-                          
-
-
                     break;
+
+
+                    
                     case 2: 
                         displayShape("Square");
                         double squareWidth = widthInput();
@@ -293,10 +293,10 @@
                         parameter = sqd(squareHeight)+sqd(squareWidth);
 
                         displayShapeEnd2D("Square", area, parameter);
-
-
-
                     break;
+
+
+
                     case 3: 
                         displayShape("Triangle");
                         double triangleLength = lengthInput();
@@ -306,10 +306,10 @@
                         parameter = 0;
 
                         displayShapeEnd2D("Triangle", area, parameter);
-
-
-
                     break;
+
+
+
                     case 4: 
                         displayShape("Circle");
                         double circleRadius = radiusInput();
@@ -318,10 +318,10 @@
                         parameter = 0;
 
                         displayShapeEnd2D("Circle", area, parameter);
-
-
-
                     break;
+
+
+
                     case 5: 
                         displayShape("Trapezium");
                         double trapeziumTop = topInput();
@@ -332,9 +332,6 @@
                         parameter = 0;
 
                         displayShapeEnd2D("Trapezium", area, parameter);
-
-
-
                     break;
                 }
 
