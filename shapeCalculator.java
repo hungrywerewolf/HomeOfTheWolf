@@ -147,7 +147,7 @@
 
         double heightOutput;
 
-        System.out.print("Insert height: ");
+        System.out.print("\nInsert height: ");
         return heightOutput = sc.nextDouble();
     }
 
