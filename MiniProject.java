@@ -366,10 +366,10 @@
                         parameter =  2 * ( Math.PI * ((cylinderRadius * 2) + cylinderHeight));
 
                         displayShapeEnd3D("Cylinder", surfaceArea,parameter);
-                          
-
-
                     break;
+                    
+
+
                     case 2: 
                         displayShape("Pyramid");
                         double pyramidWidth = widthInput();
@@ -380,10 +380,9 @@
                         surfaceArea = (pyramidBase * pyramidWidth) + (pyramidBase * Math.sqrt(((pyramidWidth / 2) * (pyramidWidth / 2)) + (pyramidHeight * pyramidHeight))) + (pyramidWidth * Math.sqrt(((1 / 2) * (1 / 2)) + (pyramidHeight * pyramidHeight)));
 
                         displayShapeEnd3D("Pyramid", surfaceArea, volume);
-
-
-
                     break;
+
+
                     case 3: 
                         displayShape("Sphere");
                         double sphereRadius = radiusInput();
@@ -392,10 +391,10 @@
                         surfaceArea = 4 * (Math.PI * (sphereRadius * sphereRadius));
 
                         displayShapeEnd3D("Sphere", surfaceArea, volume);
-
-
-
                     break;
+
+
+
                     case 4: 
                         displayShape("Cuboid");
                         double cuboidBase = radiusInput();
@@ -405,10 +404,10 @@
                         surfaceArea = (2 * cuboidBase * cuboidWidth) + (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth);
 
                         displayShapeEnd3D("Cuboid", surfaceArea, 0);
-
-
-
                     break;
+
+
+
                     case 5: 
                         displayShape("Cone");
                         double coneRadius = radiusInput();
@@ -418,9 +417,6 @@
                         parameter = 0;
 
                         displayShapeEnd3D("Cone", area, parameter);
-
-
-
                     break;
                 }
 
