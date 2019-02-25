@@ -194,6 +194,10 @@
         double width;
         double height;
 
+        //3D declairation
+        double volume;
+        double surfaceArea;
+
         System.out.print("Would you like to do a calculation on 2D or 3D object?: ");
         render = sc.next().charAt(0);
 
@@ -268,9 +272,76 @@
 
 
         }
-
+//3D – Cylinder, Pyramid, Sphere, Cuboid, Cone   
         else if(render == '3'){
             System.out.print("You have selected 3D shape");
+            System.out.print("\nPlease select your shape");
+            System.out.print("\n1. Cylinder");
+            System.out.print("\n2. Pyramid");
+            System.out.print("\n3. Sphere");
+            System.out.print("\n4. Cuboid");
+            System.out.print("\n5. Cone");
+            System.out.print("\nEnter the shape number: ");
+            shapeSelector = sc.nextInt();
+
+                switch(shapeSelector){
+                    case 1: shapetype = "Cylinder";
+                            displayShape(shapetype);
+                            double cylinderHeight = heightInput();
+                            double cylinderRadius = radiusInput();
+
+                            volume = Math.PI * ((cylinderRadius * cylinderRadius) * cylinderHeight);
+                            surfaceArea = (2 * Math.PI * cylinderRadius * cylinderHeight) + (2 * Math.PI * (cylinderRadius * cylinderRadius));
+                            parameter =  2 * ( Math.PI * ((cylinderRadius * 2) + cylinderHeight));
+
+                            displayShapeEnd(shapetype, area, parameter);
+                          
+                    break;
+                    case 2: shapetype = "Pyramid";
+                            displayShape(shapetype);
+                            double pyramidWidth = widthInput();
+                            double pyramidHeight = heightInput();
+                            double pyramidBase = baseInput();
+
+                            volume = (pyramidBase * pyramidWidth * pyramidHeight) / 3;
+                            surfaceArea = (pyramidBase * pyramidWidth) + (pyramidBase * Math.sqrt(((pyramidWidth / 2) * (pyramidWidth / 2)) + (pyramidHeight * pyramidHeight))) + (pyramidWidth * Math.sqrt(((1 / 2) * (1 / 2)) + (pyramidHeight * pyramidHeight)));
+
+                            displayShapeEnd(shapetype, area, parameter);
+
+                    break;
+                    case 3: shapetype = "Sphere";
+                            displayShape(shapetype);
+                            double sphereRadius = radiusInput();
+
+                            volume = 4 / 3 * (Math.PI * (sphereRadius * sphereRadius * sphereRadius));
+                            surfaceArea = 4 * (Math.PI * (sphereRadius * sphereRadius));
+
+                            displayShapeEnd(shapetype, area, parameter);
+
+                    break;
+                    case 4: shapetype = "Cuboid";
+                            displayShape(shapetype);
+                            double cuboidRadius = radiusInput();
+
+                            surfaceArea = (2 * cuboidBase * cuboidWidth) + (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth);
+                            parameter = 0;
+
+                            displayShapeEnd(shapetype, area, parameter);
+
+                    break;
+                    case 5: shapetype = "Trapezium";
+                            displayShape(shapetype);
+                            double trapeziumTop = topInput();
+                            double trapeziumBase = baseInput();
+                            double trapeziumHeight = heightInput();
+
+                            area = (((trapeziumTop+trapeziumBase)/2)*trapeziumHeight);
+                            parameter = 0;
+
+                            displayShapeEnd(shapetype, area, parameter);
+
+                    break;
+                }
         }
 
 
