@@ -205,25 +205,25 @@
 
     static void displayShape(String shapetype){
 
-        System.out.print("\nYou have selected "+shapetype);
+        System.out.print("\nYou have selected " + shapetype);
     }
 
 
 
     ////reuseable display at the end method
-    static void displayShapeEnd2D(String shapetype, double area, double parameter){
+    static void displayShapeEnd2D(String shapetype, double areaInput, double parameterInput){
 
-        System.out.print("the " + shapetype + " area is "+area);
-        System.out.print("\nthe " + shapetype + " parameter is "+parameter); 
+        System.out.print("the " + shapetype + " area is " + areaInput);
+        System.out.print("\nthe " + shapetype + " parameter is " + parameterInput); 
     }
 
 
 
     ////reuseable display at the end method
-    static void displayShapeEnd3D(String shapetype, double area, double parameter){
+    static void displayShapeEnd3D(String shapetype, double volumeInput, double surfaceAreaInput){
 
-        System.out.print("the "+shapetype+" area is "+area);
-        System.out.print("\nthe "+shapetype+" parameter is "+parameter); 
+        System.out.print("the " + shapetype + " volume is " + volumeInput);
+        System.out.print("\nthe " + shapetype + " surface area is " + surfaceAreaInput);
     } 
     
     
@@ -263,64 +263,62 @@
 
             switch(shapeSelector){
 
-                case 1: shapetype = "Rectangle";
-                        displayShape("Rectangle");
-                        double rectangleWidth = widthInput();
+                case 1: displayShape("Rectangle");
+                    double rectangleWidth = widthInput();
                         double rectangleHeight = heightInput();
 
-                        area = rectangleHeight * rectangleWidth;
-                        parameter = sqd(rectangleHeight)+sqd(rectangleWidth);
+                    area = rectangleHeight * rectangleWidth;
+                    parameter = sqd(rectangleHeight)+sqd(rectangleWidth);
 
-                        displayShapeEnd2D("Rectangle", area, parameter);
+                    displayShapeEnd2D("Rectangle", area, parameter);
                           
 
 
                 break;
-                case 2: shapetype = "Square";
-                        displayShape("Square");
-                        double squareWidth = widthInput();
-                        double squareHeight = heightInput();
+                case 2: displayShape("Square");
+                    double squareWidth = widthInput();
+                    double squareHeight = heightInput();
 
-                         area = squareHeight * squareWidth;
-                        parameter = sqd(squareHeight)+sqd(squareWidth);
+                    area = squareHeight * squareWidth;
+                    parameter = sqd(squareHeight)+sqd(squareWidth);
 
-                        displayShapeEnd2D("Square", area, parameter);
+                    displayShapeEnd2D("Square", area, parameter);
 
 
 
                 break;
                 case 3: displayShape("Triangle");
-                        double triangleLength = lengthInput();
-                        double triangleHeight = heightInput();
+                    double triangleLength = lengthInput();
+                    double triangleHeight = heightInput();
 
-                        area = ((triangleLength * triangleHeight)/2);
-                        parameter = 0;
+                    area = ((triangleLength * triangleHeight)/2);
+                    parameter = 0;
 
-                        displayShapeEnd2D("Triangle", area, parameter);
+                    displayShapeEnd2D("Triangle", area, parameter);
 
 
 
                 break;
                 case 4: displayShape("Circle");
-                        double circleRadius = radiusInput();
+                    double circleRadius = radiusInput();
 
-                        area = Math.PI * circleRadius;
-                        parameter = 0;
+                    area = Math.PI * circleRadius;
+                    parameter = 0;
 
-                        displayShapeEnd2D("Circle", area, parameter);
+                    displayShapeEnd2D("Circle", area, parameter);
 
 
 
                 break;
                 case 5: displayShape("Trapezium");
-                        double trapeziumTop = topInput();
-                        double trapeziumBase = baseInput();
-                        double trapeziumHeight = heightInput();
+                    double trapeziumTop = topInput();
+                    double trapeziumBase = baseInput();
+                    double trapeziumHeight = heightInput();
 
-                        area = (((trapeziumTop+trapeziumBase)/2)*trapeziumHeight);
-                        parameter = 0;
+                    area = (((trapeziumTop+trapeziumBase)/2)*trapeziumHeight);
+                    parameter = 0;
 
-                        displayShapeEnd2D("Trapezium", area, parameter);
+                    displayShapeEnd2D("Trapezium", area, parameter);
 
 
 
@@ -346,60 +344,60 @@
                 switch(shapeSelector){
 
                     case 1: displayShape("Cylinder");
-                            double cylinderHeight = heightInput();
-                            double cylinderRadius = radiusInput();
+                        double cylinderHeight = heightInput();
+                        double cylinderRadius = radiusInput();
 
-                            volume = Math.PI * ((cylinderRadius * cylinderRadius) * cylinderHeight);
-                            surfaceArea = (2 * Math.PI * cylinderRadius * cylinderHeight) + (2 * Math.PI * (cylinderRadius * cylinderRadius));
-                            parameter =  2 * ( Math.PI * ((cylinderRadius * 2) + cylinderHeight));
+                        volume = Math.PI * ((cylinderRadius * cylinderRadius) * cylinderHeight);
+                        surfaceArea = (2 * Math.PI * cylinderRadius * cylinderHeight) + (2 * Math.PI * (cylinderRadius * cylinderRadius));
+                        parameter =  2 * ( Math.PI * ((cylinderRadius * 2) + cylinderHeight));
 
-                            displayShapeEnd3D("Cylinder", surfaceArea,parameter);
+                        displayShapeEnd3D("Cylinder", surfaceArea,parameter);
                           
 
 
                     break;
                     case 2: displayShape("Pyramid");
-                            double pyramidWidth = widthInput();
-                            double pyramidHeight = heightInput();
-                            double pyramidBase = baseInput();
+                        double pyramidWidth = widthInput();
+                        double pyramidHeight = heightInput();
+                        double pyramidBase = baseInput();
 
-                            volume = (pyramidBase * pyramidWidth * pyramidHeight) / 3;
-                            surfaceArea = (pyramidBase * pyramidWidth) + (pyramidBase * Math.sqrt(((pyramidWidth / 2) * (pyramidWidth / 2)) + (pyramidHeight * pyramidHeight))) + (pyramidWidth * Math.sqrt(((1 / 2) * (1 / 2)) + (pyramidHeight * pyramidHeight)));
+                        volume = (pyramidBase * pyramidWidth * pyramidHeight) / 3;
+                        surfaceArea = (pyramidBase * pyramidWidth) + (pyramidBase * Math.sqrt(((pyramidWidth / 2) * (pyramidWidth / 2)) + (pyramidHeight * pyramidHeight))) + (pyramidWidth * Math.sqrt(((1 / 2) * (1 / 2)) + (pyramidHeight * pyramidHeight)));
 
-                            displayShapeEnd3D("Pyramid", surfaceArea, volume);
+                        displayShapeEnd3D("Pyramid", surfaceArea, volume);
 
 
 
                     break;
                     case 3: displayShape("Sphere");
-                            double sphereRadius = radiusInput();
+                        double sphereRadius = radiusInput();
 
-                            volume = 4 / 3 * (Math.PI * (sphereRadius * sphereRadius * sphereRadius));
-                            surfaceArea = 4 * (Math.PI * (sphereRadius * sphereRadius));
+                        volume = 4 / 3 * (Math.PI * (sphereRadius * sphereRadius * sphereRadius));
+                        surfaceArea = 4 * (Math.PI * (sphereRadius * sphereRadius));
 
-                            displayShapeEnd3D("Sphere", surfaceArea, volume);
+                        displayShapeEnd3D("Sphere", surfaceArea, volume);
 
 
 
                     break;
                     case 4: displayShape("Cuboid");
-                            double cuboidBase = radiusInput();
-                            double cuboidHeight = heightInput();
-                            double cuboidWidth = widthInput();
+                        double cuboidBase = radiusInput();
+                        double cuboidHeight = heightInput();
+                        double cuboidWidth = widthInput();
 
-                            surfaceArea = (2 * cuboidBase * cuboidWidth) + (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth);
+                        surfaceArea = (2 * cuboidBase * cuboidWidth) + (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth);
 
-                            displayShapeEnd3D("Cuboid", surfaceArea, 0);
+                        displayShapeEnd3D("Cuboid", surfaceArea, 0);
 
                     break;
                     case 5: displayShape("Cone");
-                            double coneRadius = radiusInput();
-                            double coneHeight = heightInput();
+                        double coneRadius = radiusInput();
+                        double coneHeight = heightInput();
 
-                            area = Math.PI * coneRadius * (coneRadius + Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)));
-                            parameter = 0;
+                        area = Math.PI * coneRadius * (coneRadius + Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)));
+                        parameter = 0;
 
-                            displayShapeEnd3D("Cone", area, parameter);
+                        displayShapeEnd3D("Cone", area, parameter);
 
 
 
