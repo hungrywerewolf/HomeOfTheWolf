@@ -140,7 +140,7 @@
 
 
 
-    //reuseable height method
+    //Prompt user for height and gave output
     static double heightInput(){
 
         double heightOutput;
@@ -151,7 +151,7 @@
 
 
 
-    //reuseable width method
+    //Prompt user for width and gave output
     static double widthInput(){
 
         double widthOutput;
@@ -162,7 +162,7 @@
 
 
 
-    //reuseable length method
+    //Prompt user for length and gave output
     static double lengthInput(){
 
         double lengthOutput;
@@ -173,6 +173,7 @@
 
 
     
+    //Prompt user for radius and gave output
     static double radiusInput(){
 
         double radiusOutput;
@@ -182,7 +183,7 @@
     }
 
 
-
+    //Prompt user for top value and gave output
     static double topInput(){
 
         double topOutput;
@@ -192,7 +193,8 @@
     }
 
 
-
+    
+    //Prompt user for base value and gave output
     static double baseInput(){
 
         double baseOutput;
@@ -202,7 +204,7 @@
     }
 
 
-
+    //Prompt user selected shape type
     static void displayShape(String shapetype){
 
         System.out.print("\nYou have selected " + shapetype);
@@ -210,7 +212,7 @@
 
 
 
-    ////reuseable display at the end method
+    //Prompt user for end result for 2D shape
     static void displayShapeEnd2D(String shapetype, double areaInput, double parameterInput){
 
         System.out.print("the " + shapetype + " area is " + areaInput);
@@ -219,46 +221,52 @@
 
 
 
-    ////reuseable display at the end method
+    //Prompt user for end result for 3D shape
     static void displayShapeEnd3D(String shapetype, double volumeInput, double surfaceAreaInput){
 
-        System.out.print("the " + shapetype + " volume is " + volumeInput);
-        System.out.print("\nthe " + shapetype + " surface area is " + surfaceAreaInput);
+        System.out.print("The " + shapetype + " volume is " + volumeInput);
+        System.out.print("\nThe " + shapetype + " surface area is " + surfaceAreaInput);
     } 
     
     
 
     public static void main (String args []){
-        //declairation
+
+        //declaration
         char render;
         int shapeSelector;
-        boolean loop = true;
+        boolean errorMessage = true;
         char choice = 'y';
 
-        //2D declairation
+        //2D declaration
         double area;
         double parameter;
 
-        //3D declairation
+        //3D declaration
         double volume;
         double surfaceArea;
 
+        System.out.print("\n\t==================================");
+        System.out.print("\n\t|   Welcome to Shape Calculator\t |");
+        System.out.print("\n\t|Made possible by Syahir & Amirul|");
+        System.out.print("\n\t==================================");
 
+        //start loop
         do{
+            
+            System.out.print("\n\nWould you like to do a calculation on 2D or 3D object?: ");
+            render = sc.next().charAt(0);
 
-        System.out.print("Would you like to do a calculation on 2D or 3D object?: ");
-        render = sc.next().charAt(0);
+            if(render == '2'){
 
-        if(render == '2'){
-
-            System.out.print("You have selected 2D type");
-            System.out.print("\nPlease select your shape");
-            System.out.print("\n1. Rectangle");
-            System.out.print("\n2. Square");
+            System.out.print("\n2D shape has been selected!");
+            System.out.print("\n\n-----------------------------");
+            System.out.print("\nPlease select your shape:");
+            System.out.print("\n1. Rectangle\t4. Circle");
+            System.out.print("\n2. Square\t5. Trapezium");
             System.out.print("\n3. Triangle");
-            System.out.print("\n4. Circle");
-            System.out.print("\n5. Trapezium");
-            System.out.print("\nEnter the shape number: ");
+            System.out.print("\n-----------------------------");
+            System.out.print("\n\nEnter the shape number: ");
             shapeSelector = sc.nextInt();
 
             switch(shapeSelector){
@@ -407,28 +415,22 @@
 
                 }
 
-
-
-                while(loop){
-
+            
+                while(errorMessage)
+                {
                 System.out.print("\nDo you wish to continue? [Y or N]: ");
                 choice = sc.next().charAt(0);
-
                 if (choice=='y' || choice =='Y' ||choice=='n' || choice =='N')
-                    loop = false;
-
-
-                else{
-                    System.out.print("Invalid input");
-                    loop = true;
+                    errorMessage = false;
+                else 
+                    {System.out.print("Invalid Input!");
+                    errorMessage = true;}
                 }
+        }while(choice == 'Y' || choice == 'y');
 
-
-                }
-
-        }while(choice != 'N' || choice != 'n');
+        System.out.print("Thank you for using Shape Calculator, have a nice day!");
 
 
     }
 
- }
+}

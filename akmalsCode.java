@@ -121,7 +121,7 @@
 import java.util.*;
 import java.lang.Math;
 
-public class CalculateShapes
+public class akmalsCode
 {
     //  Global file-wide input scanner declaration.
     private static Scanner scShapes     =   new Scanner(System.in);
