@@ -434,12 +434,15 @@
 
         //start loop
         do{
+
             /*
              * The boolean is in the loop so that the Y/N 
              * value would be changed to true when the loop
              * reinitialise.
              */
+
             boolean errorMessage = true;
+            
             System.out.print("\n\nWould you like to do a calculation on 2D or 3D object?: ");
             render = sc.next().charAt(0);
 
