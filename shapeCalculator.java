@@ -16,9 +16,59 @@
  *                                                                                          *
  ********************************************************************************************
  *
- *      ShapeCalculator
+ *  ShapeCalculator
  * 
- *  
+ *  heightInput
+ *      PROMPT user for heightValue
+ *      GET heightValue
+ *      return heightValue
+ *  END
+ * 
+ *  widthInput
+ *      PROMPT user for widthValue
+ *      GET widthValue
+ *      return heightValue
+ *  END
+ * 
+ *  lengthInput
+ *      PROMPT user for lengthValue
+ *      GET lengthValue
+ *      return lengthValue
+ *  END
+ *
+ *  radiusInput
+ *      PROMPT user for radiusValue
+ *      GET radiusValue
+ *      return radiusValue
+ *  END
+ * 
+ *  topInput
+ *      PROMPT user for topValue
+ *      GET topValue
+ *      return topValue
+ *  END
+ * 
+ *  baseInput
+ *      PROMPT user for baseValue
+ *      GET baseValue
+ *      return baseValue
+ *  END
+ * 
+ *  displayShape
+ *      DISPLAY shape
+ *  END
+ * 
+ *  displayShapeEnd
+ *      IF render = 2 THEN
+ *          DISPLAY shapeType and areaValue
+ *          DISPLAY shapeType and ParameterValue
+ * 
+ *      IF ELSE render = 3 THEN
+ *          DISPLAY shapeType and VolumeValue
+ *          DISPLAY shapeType and surfaceAreaValue
+ *      END IF
+ *      ENF IF
+ *  END
  * 
  */
 
@@ -31,7 +81,7 @@ import java.text.*;
     static Scanner sc = new Scanner (System.in);
     static DecimalFormat numberFormat = new DecimalFormat("#.000");
 
-    public shapeCalculator(){}
+
 
     //Prompt user for height and gave output
     static double heightInput(){
@@ -97,7 +147,7 @@ import java.text.*;
     }
 
 
-    //Prompt user selected shape type
+    //Display user selected shape type
     static void displayShape(String shapetype){
 
         System.out.print("\nYou have selected " + shapetype);
@@ -105,7 +155,7 @@ import java.text.*;
 
 
 
-    //Prompt user for end result for 2D shape
+    //Display user end result
     static void displayShapeEnd(char render, String shapetype, double surfaceAreaOutput, double volParOutput){
 
 
@@ -138,10 +188,20 @@ import java.text.*;
         double volume;
         double surfaceArea;
 
-        System.out.print("\n\t==================================");
-        System.out.print("\n\t|   Welcome to Shape Calculator\t |");
-        System.out.print("\n\t|Made possible by Syahir & Amirul|");
-        System.out.print("\n\t==================================");
+        System.out.print("\n_____________________");
+        System.out.print("\n|  _________________  |");
+        System.out.print("\n| | JO           0. | |");
+        System.out.print("\n| |_________________| |");
+        System.out.print("\n|  ___ ___ ___   ___  |");
+        System.out.print("\n| | 7 | 8 | 9 | | + | |");
+        System.out.print("\n| |___|___|___| |___| |");
+        System.out.print("\n| | 4 | 5 | 6 | | - | |");
+        System.out.print("\n| |___|___|___| |___| |");
+        System.out.print("\n| | 1 | 2 | 3 | | x | |");
+        System.out.print("\n| |___|___|___| |___| |");
+        System.out.print("\n| | . | 0 | = | | / | |");
+        System.out.print("\n| |___|___|___| |___| |");
+        System.out.print("\n|_____________________|");
 
         //start loop
         do{
