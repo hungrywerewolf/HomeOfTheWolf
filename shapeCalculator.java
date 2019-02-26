@@ -24,11 +24,12 @@
 
  import java.util.*;
  import java.lang.Math.*;
-
+import java.text.*;
 
  public class shapeCalculator{
 
     static Scanner sc = new Scanner (System.in);
+    static DecimalFormat numberFormat = new DecimalFormat("#.000");
 
     public shapeCalculator(){}
 
@@ -105,23 +106,22 @@
 
 
     //Prompt user for end result for 2D shape
-    static void displayShapeEnd2D(String shapetype, double areaOutput, double parameterOutput){
+    static void displayShapeEnd(char render, String shapetype, double surfaceAreaOutput, double volParOutput){
 
-        System.out.print("the " + shapetype + " area is " + areaOutput);
-        System.out.print("\nthe " + shapetype + " parameter is " + parameterOutput); 
+
+        if(render == '2'){
+            System.out.print("the " + shapetype + " area is " + numberFormat.format(surfaceAreaOutput));
+            System.out.print("\nthe " + shapetype + " parameter is " + numberFormat.format(volParOutput));
+        }
+        
+        else if(render == '3'){
+            System.out.print("The " + shapetype + " volume is " + numberFormat.format(volParOutput));
+            System.out.print("\nThe " + shapetype + " surface area is " + numberFormat.format(surfaceAreaOutput));
+
+        }
     }
-
-
-
-    //Prompt user for end result for 3D shape
-    static void displayShapeEnd3D(String shapetype, double volumeOnput, double surfaceAreaOnput){
-
-        System.out.print("The " + shapetype + " volume is " + volumeOnput);
-        System.out.print("\nThe " + shapetype + " surface area is " + surfaceAreaOnput);
-    } 
     
     
-
     public static void main (String args []){
 
         //declaration
@@ -172,7 +172,7 @@
                         area = rectangleHeight * rectangleWidth;
                         parameter = Math.pow(rectangleHeight, 2) + Math.pow(rectangleWidth, 2);
 
-                        displayShapeEnd2D("Rectangle", area, parameter);
+                        displayShapeEnd(render,"Rectangle", area, parameter);
                     break;
 
 
@@ -185,20 +185,24 @@
                         area = squareHeight * squareWidth;
                         parameter = Math.pow(squareHeight, 2) + Math.pow(squareWidth, 2);
 
-                        displayShapeEnd2D("Square", area, parameter);
+                        displayShapeEnd(render, "Square", area, parameter);
                     break;
 
 
 
                     case 3: 
                         displayShape("Triangle");
-                        double triangleLength = lengthInput();
-                        double triangleHeight = heightInput();
+                        System.out.print("First side of the triangle: ");
+                        double triangleS1= sc.nextDouble();
+                        System.out.print("Second side of the triangle: ");
+                        double triangleS2= sc.nextDouble();
+                        System.out.print("Third side of the triangle: ");
+                         double triangleS3 = sc.nextDouble();
 
-                        area = ((triangleLength * triangleHeight)/2);
-                        parameter = triangleHeight + triangleLength;
+                        area = (triangleS1 + triangleS2 + triangleS3) /2;
+                        parameter = triangleS1 + triangleS2 + triangleS3;
 
-                        displayShapeEnd2D("Triangle", area, parameter);
+                        displayShapeEnd(render, "Triangle", area, parameter);
                     break;
 
 
@@ -207,24 +211,37 @@
                         displayShape("Circle");
                         double circleRadius = radiusInput();
 
-                        area = Math.PI * circleRadius;
-                        parameter = 2*Math.PI*(circleRadius);
+                        area = Math.PI * Math.pow(circleRadius, 2);
+                        parameter = 2 * Math.PI * circleRadius ;
 
-                        displayShapeEnd2D("Circle", area, parameter);
+                        displayShapeEnd(render, "Circle", area, parameter);
                     break;
 
 
 
                     case 5: 
                         displayShape("Trapezium");
-                        double trapeziumTop = topInput();
-                        double trapeziumBase = baseInput();
-                        double trapeziumHeight = heightInput();
 
-                        area = (((trapeziumTop+trapeziumBase)/2)*trapeziumHeight);
-                        parameter = trapeziumTop+trapeziumBase+trapeziumHeight;
+                        System.out.print("Base value: ");
+                        double trapeziumTop = sc.nextDouble();
 
-                        displayShapeEnd2D("Trapezium", area, parameter);
+                        System.out.print("Top value: ");
+                        double trapeziumBase = sc.nextDouble();
+
+                        System.out.print("One Side value: ");
+                        double trapeziumSide1 = sc.nextDouble();
+
+                        System.out.print("Another Side value: ");
+                        double trapeziumSide2 = sc.nextDouble();
+
+                        System.out.print("Height value: ");
+                        double trapeziumHeight = sc.nextDouble();
+
+
+                        area = (trapeziumTop + trapeziumBase) * trapeziumHeight /2 ;
+                        parameter = trapeziumTop + trapeziumBase + trapeziumSide1 + trapeziumSide2;
+
+                        displayShapeEnd(render, "Trapezium", area, parameter);
                     break;
                 }
 
@@ -255,10 +272,9 @@
                         double cylinderRadius = radiusInput();
 
                         volume = Math.PI * ((cylinderRadius * cylinderRadius) * cylinderHeight);
-                        surfaceArea = (2 * Math.PI * cylinderRadius * cylinderHeight) + (2 * Math.PI * (cylinderRadius * cylinderRadius));
-                        parameter =  2 * ( Math.PI * ((cylinderRadius * 2) + cylinderHeight));
+                        surfaceArea = (2 * Math.PI * cylinderRadius * cylinderHeight) + (2 * Math.PI * cylinderRadius * cylinderRadius);
 
-                        displayShapeEnd3D("Cylinder", surfaceArea,parameter);
+                        displayShapeEnd(render, "Cylinder", surfaceArea, volume);
                     break;
                     
 
@@ -272,7 +288,7 @@
                         volume = (pyramidBase * pyramidWidth * pyramidHeight) / 3;
                         surfaceArea = (pyramidBase * pyramidWidth) + (pyramidBase * Math.sqrt(((pyramidWidth / 2) * (pyramidWidth / 2)) + (pyramidHeight * pyramidHeight))) + (pyramidWidth * Math.sqrt(((1 / 2) * (1 / 2)) + (pyramidHeight * pyramidHeight)));
 
-                        displayShapeEnd3D("Pyramid", surfaceArea, volume);
+                        displayShapeEnd(render, "Pyramid", surfaceArea, volume);
                     break;
 
 
@@ -284,7 +300,7 @@
                         volume = 4 / 3 * (Math.PI * (sphereRadius * sphereRadius * sphereRadius));
                         surfaceArea = 4 * (Math.PI * (sphereRadius * sphereRadius));
 
-                        displayShapeEnd3D("Sphere", surfaceArea, volume);
+                        displayShapeEnd(render, "Sphere", surfaceArea, volume);
                     break;
 
 
@@ -295,9 +311,10 @@
                         double cuboidHeight = heightInput();
                         double cuboidWidth = widthInput();
 
+                        volume = cuboidBase * cuboidHeight * cuboidWidth;
                         surfaceArea = (2 * cuboidBase * cuboidWidth) + (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth);
 
-                        displayShapeEnd3D("Cuboid", surfaceArea, 0);
+                        displayShapeEnd(render, "Cuboid", surfaceArea, volume);
                     break;
 
 
@@ -307,10 +324,10 @@
                         double coneRadius = radiusInput();
                         double coneHeight = heightInput();
 
-                        area = Math.PI * coneRadius * (coneRadius + Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)));
-                        parameter = 0;
+                        volume = Math.PI * ((coneRadius * coneRadius) * (coneHeight / 3));
+                        surfaceArea = Math.PI * coneRadius * (coneRadius + Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)));
 
-                        displayShapeEnd3D("Cone", area, parameter);
+                        displayShapeEnd(render, "Cone", surfaceArea, volume);
                     break;
                 }
 
