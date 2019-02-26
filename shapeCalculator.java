@@ -1,76 +1,7 @@
 /** Author: Syahir 52052418006
  *          Amirul 52052418004
- * 
- *  Date Created: 09022019
- * 
- ********************************************************************************************
- *                                                                                          *
- *                                                                                          *
- * Design and code a program to develop a Geometric Calculator.                             *
- * The calculator will display certain geometric object’s volume, area and perimeter.       *
- *                                                                                          *
- * Geometric object that will involved is                                                   *
- * i.	2D – Rectangle, Square, Triangle, Circle, Trapezium                                 *
- * ii.	3D – Cylinder, Pyramid, Sphere, Cuboid, Cone                                        *
- *                                                                                          *
- *                                                                                          *
- ********************************************************************************************
- *
- *  ShapeCalculator
- * 
- *  heightInput
- *      PROMPT user for heightValue
- *      GET heightValue
- *      return heightValue
- *  END
- * 
- *  widthInput
- *      PROMPT user for widthValue
- *      GET widthValue
- *      return heightValue
- *  END
- * 
- *  lengthInput
- *      PROMPT user for lengthValue
- *      GET lengthValue
- *      return lengthValue
- *  END
- *
- *  radiusInput
- *      PROMPT user for radiusValue
- *      GET radiusValue
- *      return radiusValue
- *  END
- * 
- *  topInput
- *      PROMPT user for topValue
- *      GET topValue
- *      return topValue
- *  END
- * 
- *  baseInput
- *      PROMPT user for baseValue
- *      GET baseValue
- *      return baseValue
- *  END
- * 
- *  displayShape
- *      DISPLAY shape
- *  END
- * 
- *  displayShapeEnd
- *      IF render = 2 THEN
- *          DISPLAY shapeType and areaValue
- *          DISPLAY shapeType and ParameterValue
- * 
- *      IF ELSE render = 3 THEN
- *          DISPLAY shapeType and VolumeValue
- *          DISPLAY shapeType and surfaceAreaValue
- *      END IF
- *      ENF IF
- *  END
- * 
  */
+
 
  import java.util.*;
  import java.lang.Math.*;
