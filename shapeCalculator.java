@@ -16,95 +16,9 @@
  *                                                                                          *
  ********************************************************************************************
  *
- * MiniProject
+ *      ShapeCalculator
  * 
- * Prompt user for render
- * Get render
- * 
- * IF render == 1 THEN
- *          Display selected 2D
- *          Prompt user for shape
- *          Get shape
- *          CASE OF shape
- *              1: Display selected rectangle
- *                  Prompt user for width
- *                  Get width
- *                  Prompt user for height
- *                  Get height
- *                  area = legth * width
- *                  perimeter = (length * length)+(width * width)
- *                  
- * 
- *              2: Display selected square
- *                  Prompt user for width
- *                  Get width
- *                  area = width * width
- *                  perimeter = width * width * width * width                 
- * 
- *              3: Display selected triangle
- *                  Prompt user for shapet
- *                  Get shapet
- *                  IF triangleShape = 1 THEN
- *                      Display selected triangle
- *                      Prompt user for height
- *                      Get height
- *                      Prompt user for base
- *                      Get base
- *                      Prompt user for cSide
- *                      Get cSide
- *                      area = 1/2*(base*height)
- *                      perimeter = base + height + cside
- * 
- *                  ELSE IF triangleShape = 0 THEN
- *                      Display selected equilateralTriangle
- *                      Prompt user for width
- *                      Get width
- *                      Prompt user for height
- *                      Get height
- *                      area = legth * width
- *                      perimeter = (length * length)+(width * width)
- * 
- *                  ELSE
- *                      Display invalid input
- *                  END IF
- * 
- * 
- *              4: Display selected circle
- *                  Prompt user for radius
- *                  Get radius
- *                  area = 
- *                  perimeter = 3.142
- * 
- *              5: Display selected trapezium
- *                  Prompt user for width
- *                  Get width
- *                  Prompt user for height
- *                  Get height
- *                  area = legth * width
- *                  perimeter = (length * length)+(width * width)
- * 
- *              END CASE
- * ELSE IF render == 0 THEN
- *          Display Selected 3D
- *          Prompt user for shape
- *          Get shape
- *          CASE OF shape
- *              1: Display Selected cylinder
- * 
- *              2: Display Selected pyramid
- * 
- *              3: Display Selected sphere
- * 
- *              4: Display Selected cuboid
- * 
- *              5: Display Selected cone
- * 
- *              END CASE
- * ELSE
- *          Display incorrect input
- * END IF
- * 
- * 
+ *  
  * 
  */
 
@@ -117,30 +31,6 @@
     static Scanner sc = new Scanner (System.in);
 
     public shapeCalculator(){}
-
-
-    //math equation methods
-    static double sqd(double value){   
-        
-        return value * value;
-    }
-
-
-
-    static double sqrt(int value){
-        double t;
-     
-        double sqrtvalue = value / 2;
-     
-        do {
-            t = sqrtvalue;
-            sqrtvalue = (t + (value / t)) / 2;
-        } while ((t - sqrtvalue) != 0);
-     
-        return sqrtvalue;
-    }
-
-
 
     //Prompt user for height and gave output
     static double heightInput(){
@@ -280,7 +170,7 @@
                         double rectangleHeight = heightInput();
 
                         area = rectangleHeight * rectangleWidth;
-                        parameter = sqd(rectangleHeight)+sqd(rectangleWidth);
+                        parameter = Math.pow(rectangleHeight, 2) + Math.pow(rectangleWidth, 2);
 
                         displayShapeEnd2D("Rectangle", area, parameter);
                     break;
@@ -293,7 +183,7 @@
                         double squareHeight = heightInput();
 
                         area = squareHeight * squareWidth;
-                        parameter = sqd(squareHeight)+sqd(squareWidth);
+                        parameter = Math.pow(squareHeight, 2) + Math.pow(squareWidth, 2);
 
                         displayShapeEnd2D("Square", area, parameter);
                     break;
@@ -306,7 +196,7 @@
                         double triangleHeight = heightInput();
 
                         area = ((triangleLength * triangleHeight)/2);
-                        parameter = 0;
+                        parameter = triangleHeight + triangleLength;
 
                         displayShapeEnd2D("Triangle", area, parameter);
                     break;
@@ -318,7 +208,7 @@
                         double circleRadius = radiusInput();
 
                         area = Math.PI * circleRadius;
-                        parameter = 0;
+                        parameter = 2*Math.PI*(circleRadius);
 
                         displayShapeEnd2D("Circle", area, parameter);
                     break;
@@ -332,7 +222,7 @@
                         double trapeziumHeight = heightInput();
 
                         area = (((trapeziumTop+trapeziumBase)/2)*trapeziumHeight);
-                        parameter = 0;
+                        parameter = trapeziumTop+trapeziumBase+trapeziumHeight;
 
                         displayShapeEnd2D("Trapezium", area, parameter);
                     break;
@@ -386,6 +276,7 @@
                     break;
 
 
+                    
                     case 3: 
                         displayShape("Sphere");
                         double sphereRadius = radiusInput();
@@ -439,7 +330,7 @@
                 errorMessage = true;}
             }
 
-        }while(choice == 'Y' || choice == 'y'); //End loop
+        }while(choice == 'Y' || choice == 'y');
 
         System.out.print("Thank you for using Shape Calculator, have a nice day!");
 
