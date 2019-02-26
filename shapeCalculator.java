@@ -149,7 +149,7 @@
  *  
  *              area = (triangleS1 + triangleS2 + triangleS3)/2
  *              perimeter = triangleS1 + triangleS2 + triangleS3
- * 
+ *              
  *              displayShapeEnd(render, "triangle", area, perimeter)
  * 
  *              4:
@@ -185,8 +185,8 @@
  *              cylinderHeight = heightInput()
  *              cylinderRadius = radiusInput()
  *  
- *              volume = PI * ((cylinderRadius * cylinderRadius) * cylinderHeight);
- *              surfaceArea = (2 * PI * cylinderRadius * cylinderHeight) + (2 * PI * cylinderRadius * cylinderRadius);
+ *              volume = PI * ((cylinderRadius * cylinderRadius) * cylinderHeight)
+ *              surfaceArea = (2 * PI * cylinderRadius * cylinderHeight) + (2 * PI * cylinderRadius * cylinderRadius)
  *              
  *              displayShapeEnd(render, "Cylinder", surfaceArea, volume)
  * 
@@ -226,8 +226,8 @@
  *              double coneRadius = radiusInput();
  *              double coneHeight = heightInput();
  *
- *              volume = Math.PI * ((coneRadius * coneRadius) * (coneHeight / 3));
- *              surfaceArea = Math.PI * coneRadius * (coneRadius + Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)));
+ *              volume = Math.PI * ((coneRadius * coneRadius) * (coneHeight / 3))
+ *              surfaceArea = Math.PI * coneRadius * (coneRadius + Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)))
  *
  *              displayShapeEnd(render, "Cone", surfaceArea, volume);
  *              END CASE
@@ -245,6 +245,7 @@
  *              WHILE (choice == y)
  *              END DOWHILE
  *              END WHILE
+ *  DISPLAY thank you
  *  END
  */
 
@@ -258,7 +259,10 @@
     static DecimalFormat numberFormat = new DecimalFormat("#.000");
 
 
-
+    /*
+     * Basic I/O are in these few methods 
+     * to avoid repetitive code in main method
+     */
     //Prompt user for height and gave output
     static double heightInput(){
 
@@ -402,6 +406,8 @@
         double volume;
         double surfaceArea;
 
+
+        /*********This is the first page*************/
         System.out.print("\n _____________________");
         System.out.print("\n|  _________________  |");
         System.out.print("\n| |    Welcome to   | |");
@@ -423,10 +429,17 @@
 
         //start loop
         do{
+            /*
+             * The boolean is in the loop so that the Y/N 
+             * value would be changed to true when the loop
+             * reinitialise.
+             */
             boolean errorMessage = true;
             System.out.print("\n\nWould you like to do a calculation on 2D or 3D object?: ");
             render = sc.next().charAt(0);
 
+
+            //IF statement for choosing 2D or 3D object
             if(render == '2'){
 
                 /************ Main menu for 2D Shape ************/
@@ -440,13 +453,19 @@
                 System.out.print("\n\nEnter the shape number: ");
                 shapeSelector = sc.nextInt();
 
+
+                //switch statement to select what type of shape to be calculated
                 switch(shapeSelector){
 
                     case 1: 
                         displayShape("Rectangle");
+
                         double rectangleWidth   = widthInput();
                         double rectangleHeight  = heightInput();
 
+
+                        //area = rectangleHeight * rectangleWidth
+                        //perimeter = (rectangleHeight^2)+(rectangleWidth^2)
                         area = rectangleHeight * rectangleWidth;
                         perimeter = Math.pow(rectangleHeight, 2) + Math.pow(rectangleWidth, 2);
 
@@ -457,9 +476,12 @@
 
                     case 2: 
                         displayShape("Square");
+
                         double squareWidth  = widthInput();
                         double squareHeight = heightInput();
 
+                        //area = rectangleHeight * rectangleWidth
+                        //perimeter = (rectangleHeight^2)+(rectangleWidth^2)
                         area = squareHeight * squareWidth;
                         perimeter = Math.pow(squareHeight, 2) + Math.pow(squareWidth, 2);
 
@@ -474,6 +496,8 @@
                         double triangleS2 = triangleSide(2);
                         double triangleS3 = triangleSide(3);
 
+                        //area = (triangleS1 + triangleS2 + triangleS3)/2
+                        //perimeter = triangleS1 + triangleS2 + triangleS3
                         area = (triangleS1 + triangleS2 + triangleS3) /2;
                         perimeter = triangleS1 + triangleS2 + triangleS3;
 
@@ -486,6 +510,8 @@
                         displayShape("Circle");
                         double circleRadius = radiusInput();
 
+                        //area = PI *(circleRadius^2)
+                        //perimeter = 2 * PI * circleRadius
                         area = Math.PI * Math.pow(circleRadius, 2);
                         perimeter = 2 * Math.PI * circleRadius ;
 
@@ -503,7 +529,8 @@
                         double trapeziumSide2   = side2Input();
                         double trapeziumHeight  = heightInput();
 
-
+                        //area = (trapeziumTop + trapeziumBase) * trapeziumHeight/2
+                        //perimeter = trapeziumTop + trapeziumBase + trapeziumSide1 + trapeziumSide2
                         area = (trapeziumTop + trapeziumBase) * trapeziumHeight /2 ;
                         perimeter = trapeziumTop + trapeziumBase + trapeziumSide1 + trapeziumSide2;
 
@@ -537,8 +564,12 @@
                         double cylinderHeight = heightInput();
                         double cylinderRadius = radiusInput();
 
+                        //volume = PI * ((cylinderRadius * cylinderRadius) * cylinderHeight)
+                        //surfaceArea = (2 * PI * cylinderRadius * cylinderHeight) + 
+                        //              (2 * PI * cylinderRadius * cylinderRadius)
                         volume = Math.PI * ((cylinderRadius * cylinderRadius) * cylinderHeight);
-                        surfaceArea = (2 * Math.PI * cylinderRadius * cylinderHeight) + (2 * Math.PI * cylinderRadius * cylinderRadius);
+                        surfaceArea = (2 * Math.PI * cylinderRadius * cylinderHeight) + 
+                                      (2 * Math.PI * cylinderRadius * cylinderRadius);
 
                         displayShapeEnd(render, "Cylinder", surfaceArea, volume);
                     break;
@@ -551,8 +582,18 @@
                         double pyramidHeight = heightInput();
                         double pyramidBase = baseInput();
 
+                        //volume = (pyramidBase * pyramidWidth * pyramidHeight) / 3
+                        //surfaceArea = (pyramidBase * pyramidWidth) + 
+                        //              (pyramidBase * Math.sqrt(((pyramidWidth / 2) * 
+                        //              (pyramidWidth / 2)) + (pyramidHeight * pyramidHeight))) +
+                        //              (pyramidWidth * Math.sqrt(((1 / 2) * (1 / 2)) +
+                        //              (pyramidHeight * pyramidHeight)))
                         volume = (pyramidBase * pyramidWidth * pyramidHeight) / 3;
-                        surfaceArea = (pyramidBase * pyramidWidth) + (pyramidBase * Math.sqrt(((pyramidWidth / 2) * (pyramidWidth / 2)) + (pyramidHeight * pyramidHeight))) + (pyramidWidth * Math.sqrt(((1 / 2) * (1 / 2)) + (pyramidHeight * pyramidHeight)));
+                        surfaceArea = (pyramidBase * pyramidWidth) + 
+                                      (pyramidBase * Math.sqrt(((pyramidWidth / 2) * 
+                                      (pyramidWidth / 2)) + (pyramidHeight * pyramidHeight))) + 
+                                      (pyramidWidth * Math.sqrt(((1 / 2) * (1 / 2)) + 
+                                      (pyramidHeight * pyramidHeight)));
 
                         displayShapeEnd(render, "Pyramid", surfaceArea, volume);
                     break;
@@ -563,6 +604,8 @@
                         displayShape("Sphere");
                         double sphereRadius = radiusInput();
 
+                        //volume = 4 / 3 * (Math.PI * (sphereRadius * sphereRadius * sphereRadius))
+                        //surfaceArea = 4 * (Math.PI * (sphereRadius * sphereRadius))
                         volume = 4 / 3 * (Math.PI * (sphereRadius * sphereRadius * sphereRadius));
                         surfaceArea = 4 * (Math.PI * (sphereRadius * sphereRadius));
 
@@ -577,8 +620,12 @@
                         double cuboidHeight = heightInput();
                         double cuboidWidth = widthInput();
 
+                        //volume = cuboidBase * cuboidHeight * cuboidWidth
+                        //surfaceArea = (2 * cuboidBase * cuboidWidth) + 
+                        //              (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth)
                         volume = cuboidBase * cuboidHeight * cuboidWidth;
-                        surfaceArea = (2 * cuboidBase * cuboidWidth) + (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth);
+                        surfaceArea = (2 * cuboidBase * cuboidWidth) + 
+                                      (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth);
 
                         displayShapeEnd(render, "Cuboid", surfaceArea, volume);
                     break;
@@ -590,8 +637,12 @@
                         double coneRadius = radiusInput();
                         double coneHeight = heightInput();
 
+                        //volume = Math.PI * ((coneRadius * coneRadius) * (coneHeight / 3))
+                        //surfaceArea = Math.PI * coneRadius * (coneRadius + 
+                        //              Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)));
                         volume = Math.PI * ((coneRadius * coneRadius) * (coneHeight / 3));
-                        surfaceArea = Math.PI * coneRadius * (coneRadius + Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)));
+                        surfaceArea = Math.PI * coneRadius * (coneRadius + 
+                                      Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)));
 
                         displayShapeEnd(render, "Cone", surfaceArea, volume);
                     break;
@@ -605,12 +656,13 @@
 
                 System.out.print("\nWould you like to continue? [Y or N]: ");
                 choice = sc.next().charAt(0);
+                
                 if (choice=='y' || choice =='Y' ||choice=='n' || choice =='N')
-                errorMessage = false;
+                    errorMessage = false;
 
                 else {
-                System.out.print("\nInvalid Input!");
-                errorMessage = true;}
+                    System.out.print("\nInvalid Input!");
+                    errorMessage = true;}
             }
 
         }while(choice == 'Y' || choice == 'y');
