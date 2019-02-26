@@ -492,6 +492,7 @@
 
                     case 3: 
                         displayShape("Triangle");
+
                         double triangleS1 = triangleSide(1);
                         double triangleS2 = triangleSide(2);
                         double triangleS3 = triangleSide(3);
@@ -508,6 +509,7 @@
 
                     case 4: 
                         displayShape("Circle");
+
                         double circleRadius = radiusInput();
 
                         //area = PI *(circleRadius^2)
@@ -561,6 +563,7 @@
 
                     case 1: 
                         displayShape("Cylinder");
+
                         double cylinderHeight = heightInput();
                         double cylinderRadius = radiusInput();
 
@@ -578,6 +581,7 @@
 
                     case 2: 
                         displayShape("Pyramid");
+
                         double pyramidWidth = widthInput();
                         double pyramidHeight = heightInput();
                         double pyramidBase = baseInput();
@@ -602,6 +606,7 @@
                     
                     case 3: 
                         displayShape("Sphere");
+
                         double sphereRadius = radiusInput();
 
                         //volume = 4 / 3 * (Math.PI * (sphereRadius * sphereRadius * sphereRadius))
@@ -616,6 +621,7 @@
 
                     case 4: 
                         displayShape("Cuboid");
+
                         double cuboidBase = radiusInput();
                         double cuboidHeight = heightInput();
                         double cuboidWidth = widthInput();
@@ -634,6 +640,7 @@
 
                     case 5: 
                         displayShape("Cone");
+                        
                         double coneRadius = radiusInput();
                         double coneHeight = heightInput();
 
@@ -656,7 +663,7 @@
 
                 System.out.print("\nWould you like to continue? [Y or N]: ");
                 choice = sc.next().charAt(0);
-                
+
                 if (choice=='y' || choice =='Y' ||choice=='n' || choice =='N')
                     errorMessage = false;
 
