@@ -190,7 +190,11 @@ import java.text.*;
 
         System.out.print("\n_____________________");
         System.out.print("\n|  _________________  |");
-        System.out.print("\n| | JO           0. | |");
+        System.out.print("\n| |    Welcome to   | |");
+        System.out.print("\n| |Shape Calculator!| |");
+        System.out.print("\n| |   Made possible | |");
+        System.out.print("\n| |        By       | |");
+        System.out.print("\n| | Syahir & Amirul | |");
         System.out.print("\n| |_________________| |");
         System.out.print("\n|  ___ ___ ___   ___  |");
         System.out.print("\n| | 7 | 8 | 9 | | + | |");
