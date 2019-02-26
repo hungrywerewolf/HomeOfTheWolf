@@ -250,12 +250,16 @@
  */
 
  import java.util.*;
- import java.lang.Math.*;
+ import java.lang.Math;
  import java.text.*;
 
  public class shapeCalculator{
 
+
+    //This is to take input from user
     static Scanner sc = new Scanner (System.in);
+
+    //This is to limit the decimal points to 3
     static DecimalFormat numberFormat = new DecimalFormat("#.000");
 
 
@@ -263,6 +267,7 @@
      * Basic I/O are in these few methods 
      * to avoid repetitive code in main method
      */
+
     //Prompt user for height and gave output
     static double heightInput(){
 
@@ -640,7 +645,7 @@
 
                     case 5: 
                         displayShape("Cone");
-                        
+
                         double coneRadius = radiusInput();
                         double coneHeight = heightInput();
 
