@@ -198,7 +198,10 @@
  *              double pyramidBase   <= baseInput()
  *
  *              volume      <= (pyramidBase * pyramidWidth * pyramidHeight) / 3
- *              surfaceArea <= (pyramidBase * pyramidWidth) + (pyramidBase * Math.sqrt(((pyramidWidth / 2) * (pyramidWidth / 2)) + (pyramidHeight * pyramidHeight))) + (pyramidWidth * Math.sqrt(((1 / 2) * (1 / 2)) + (pyramidHeight * pyramidHeight)))
+ *              surfaceArea <= (pyramidBase * pyramidWidth) + (pyramidBase * 
+ *                              Math.sqrt(((pyramidWidth / 2) * (pyramidWidth / 2)) + 
+ *                              (pyramidHeight * pyramidHeight))) + (pyramidWidth * 
+ *                              Math.sqrt(((1 / 2) * (1 / 2)) + (pyramidHeight * pyramidHeight)))
  *
  *              displayShapeEnd(render, "Pyramid", surfaceArea, volume)
  * 
@@ -218,7 +221,8 @@
  *              double cuboidWidth  <= widthInput()
  *
  *              volume      <= cuboidBase * cuboidHeight * cuboidWidth
- *              surfaceArea <= (2 * cuboidBase * cuboidWidth) + (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth)
+ *              surfaceArea <= (2 * cuboidBase * cuboidWidth) + 
+ *                             (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth)
  *
  *              displayShapeEnd(render, "Cuboid", surfaceArea, volume)
  * 
@@ -228,7 +232,8 @@
  *              double coneHeight <= heightInput();
  *
  *              volume      <= Math.PI * ((coneRadius * coneRadius) * (coneHeight / 3))
- *              surfaceArea <= Math.PI * coneRadius * (coneRadius + Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)))
+ *              surfaceArea <= Math.PI * coneRadius * (coneRadius + 
+ *                             Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)))
  *
  *              displayShapeEnd(render, "Cone", surfaceArea, volume);
  *              END CASE
