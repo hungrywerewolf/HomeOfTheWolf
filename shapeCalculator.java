@@ -21,56 +21,56 @@
  *  heightInput
  *      PROMPT user for heightValue
  *      GET heightValue
- *      return heightValue
+ *      RETURN heightValue
  *  END
  * 
  * 
  *  widthInput
  *      PROMPT user for widthValue
  *      GET widthValue
- *      return heightValue
+ *      RETURN heightValue
  *  END
  * 
  * 
  *  lengthInput
  *      PROMPT user for lengthValue
  *      GET lengthValue
- *      return lengthValue
+ *      RETURN lengthValue
  *  END
  *
  * 
  *  radiusInput
  *      PROMPT user for radiusValue
  *      GET radiusValue
- *      return radiusValue
+ *      RETURN radiusValue
  *  END
  * 
  * 
  *  topInput
  *      PROMPT user for topValue
  *      GET topValue
- *      return topValue
+ *      RETURN topValue
  *  END
  * 
  * 
  *  baseInput
  *      PROMPT user for baseValue
  *      GET baseValue
- *      return baseValue
+ *      RETURN baseValue
  *  END
  * 
  * 
  *  sideInput
  *      PROMPT user for sideValue
  *      GET sideValue
- *      return sideValue
+ *      RETURN sideValue
  *  END
  * 
  * 
  *  side2Input
  *      PROMPT user for side2Value
  *      GET side2Value
- *      return side2Value
+ *      RETURN side2Value
  *  END
  * 
  * 
