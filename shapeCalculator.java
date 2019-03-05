@@ -76,19 +76,20 @@
  * 
  *  triangleSide
  *      IF sideSelector == 1 THEN
- *          PROMPT side1Triangle
- *          GET side1Triangle
+ *          PROMPT sideTriangle
+ *          GET sideTriangle
  * 
- *      ELSE IF sideSelector == 1 THEN
- *          PROMPT side2Triangle
- *          GET side1Triangle
+ *      ELSE IF sideSelector == 2 THEN
+ *          PROMPT sideTriangle
+ *          GET sideTriangle
  * 
- *      ELSE IF sideSelector == 1 THEN
- *          PROMPT side3Triangle
- *          GET side1Triangle
+ *      ELSE IF sideSelector == 3 THEN
+ *          PROMPT sideTriangle
+ *          GET sideTriangle
  *      END IF
  *      END IF
  *      END IF
+ *      RETURN sideTriangle
  *  END
  * 
  * 
@@ -118,10 +119,11 @@
  *  DISPLAY startPage
  *  
  *  DO
+ *      boolean errorMessage = true
  *      PROMPT render
  *      GET render
  *      
- *      IF render <= 2 THEN
+ *      IF render == 2 THEN
  *          PROMPT shapeSelector
  *          GET shapeSelector
  *  
@@ -184,7 +186,7 @@
  * 
  *              END CASE
  * 
- *      ELSE IF render <= 3 THEN
+ *      ELSE IF render == 3 THEN
  *          PROMPT shapeSelector
  *          GET shapeSelector
  * 
@@ -717,7 +719,7 @@ import java.lang.Math;
 
                 else {
                     invalidInput();
-                    errorMessage = true;}
+                    }
             }
 
         }while(choice == 'Y' || choice == 'y');
