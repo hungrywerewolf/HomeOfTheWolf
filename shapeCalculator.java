@@ -108,6 +108,7 @@
  *          DISPLAY shapeType and surfaceAreaValue
  *      END IF
  *      ENF IF
+ * invalidInput
  *  END
  * 
  * invalidInput
@@ -275,10 +276,7 @@
  */
 
  import java.util.*;
-
-import com.sun.corba.se.pept.transport.InboundConnectionCache;
-
-import java.lang.Math;
+ import java.lang.Math;
  import java.text.*;
 
  public class shapeCalculator{
@@ -296,7 +294,7 @@ import java.lang.Math;
      * to avoid repetitive code in main method
      */
 
-    //Prompt user for height and gave output
+    //Prompt user for height and gives output
     static double heightInput(){
 
         double heightOutput;
@@ -307,7 +305,7 @@ import java.lang.Math;
 
 
 
-    //Prompt user for width and gave output
+    //Prompt user for width and gives output
     static double widthInput(){
 
         double widthOutput;
@@ -318,7 +316,7 @@ import java.lang.Math;
 
 
 
-    //Prompt user for length and gave output
+    //Prompt user for length and gives output
     static double lengthInput(){
 
         double lengthOutput;
@@ -329,7 +327,7 @@ import java.lang.Math;
 
 
     
-    //Prompt user for radius and gave output
+    //Prompt user for radius and gives output
     static double radiusInput(){
 
         double radiusOutput;
@@ -339,7 +337,7 @@ import java.lang.Math;
     }
 
 
-    //Prompt user for top value and gave output
+    //Prompt user for top value and gives output
     static double topInput(){
 
         double topOutput;
@@ -350,7 +348,7 @@ import java.lang.Math;
     
 
 
-    //Prompt user for base value and gave output
+    //Prompt user for base value and gives output
     static double baseInput(){
 
         double baseOutput;
@@ -359,6 +357,7 @@ import java.lang.Math;
         return baseOutput = sc.nextDouble();
     }
 
+    //Prompt user for side value and gives output
     static double sideInput(){
 
         double baseOutput;
@@ -367,6 +366,7 @@ import java.lang.Math;
         return baseOutput = sc.nextDouble();
     }
 
+    //Prompt user for second value and gives output
     static double side2Input(){
 
         double baseOutput;
@@ -375,7 +375,7 @@ import java.lang.Math;
         return baseOutput = sc.nextDouble();
     }
 
-    //Prompt user for triangle value and gave output
+    //Prompt user for triangle value and gives output
     static double triangleSide(int sideSelector){
 
         double triangleSide = 0;
