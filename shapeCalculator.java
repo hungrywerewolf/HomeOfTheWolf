@@ -109,6 +109,10 @@
  *      ENF IF
  *  END
  * 
+ * invalidInput
+ *  DISPLAY invalid input
+ * END
+ * 
  * 
  *  shapeCalculator
  *  DISPLAY startPage
@@ -174,6 +178,10 @@
  *              perimeter <= trapeziumTop + trapeziumBase + trapeziumSide1 + trapeziumSide2
  * 
  *              displayShapeEnd(render, "Trapezium", area, perimeter) 
+ *              
+ *              default:
+ *              invalidInput
+ * 
  *              END CASE
  * 
  *      ELSE IF render <= 3 THEN
@@ -236,7 +244,16 @@
  *                             Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)))
  *
  *              displayShapeEnd(render, "Cone", surfaceArea, volume);
+ *              
+ *              default:
+ *              invalidInput
+ * 
  *              END CASE
+ * 
+ *      ELSE
+ *          invalidInput
+ * 
+ *      END IF
  *      END IF
  *      END IF
  * 
