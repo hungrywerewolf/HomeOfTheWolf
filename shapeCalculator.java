@@ -256,7 +256,10 @@
  */
 
  import java.util.*;
- import java.lang.Math;
+
+import com.sun.corba.se.pept.transport.InboundConnectionCache;
+
+import java.lang.Math;
  import java.text.*;
 
  public class shapeCalculator{
@@ -403,6 +406,11 @@
 
         }
     }
+
+    //Display invalid input when used.
+    static void invalidInput(){
+        System.out.print("You have entered an invalid input.");
+    }
       
     public static void main (String args []){
 
@@ -494,12 +502,11 @@
                         displayShape("Square");
 
                         double squareWidth  = widthInput();
-                        double squareHeight = heightInput();
 
                         //area      = rectangleHeight * rectangleWidth
                         //perimeter = (rectangleHeight^2)+(rectangleWidth^2)
-                        area = squareHeight * squareWidth;
-                        perimeter = Math.pow(squareHeight, 2) + Math.pow(squareWidth, 2);
+                        area = squareWidth * squareWidth;
+                        perimeter = Math.pow(squareWidth, 2) + Math.pow(squareWidth, 2);
 
                         displayShapeEnd(render, "Square", area, perimeter);
                     break;
@@ -554,6 +561,9 @@
 
                         displayShapeEnd(render, "Trapezium", area, perimeter);
                     break;
+
+                    default:
+                    invalidInput();
                 }
 
 
@@ -566,11 +576,9 @@
                 System.out.print("3D shape has been selected!");
                 System.out.print("\n\n-----------------------------");
                 System.out.print("\nPlease select your shape");
-                System.out.print("\n1. Cylinder");
-                System.out.print("\n2. Pyramid");
+                System.out.print("\n1. Cylinder\t4. Cuboid");
+                System.out.print("\n2. Pyramid\t5. Cone");
                 System.out.print("\n3. Sphere");
-                System.out.print("\n4. Cuboid");
-                System.out.print("\n5. Cone");
                 System.out.print("\n-----------------------------");
                 System.out.print("\nEnter the shape number: ");
                 shapeSelector = sc.nextInt();
@@ -598,9 +606,9 @@
                     case 2: 
                         displayShape("Pyramid");
 
-                        double pyramidWidth  = widthInput();
-                        double pyramidHeight = heightInput();
                         double pyramidBase   = baseInput();
+                        double pyramidHeight = heightInput();
+                        double pyramidWidth  = widthInput();
 
                         //volume      = (pyramidBase * pyramidWidth * pyramidHeight) / 3
                         //surfaceArea = (pyramidBase * pyramidWidth) + 
@@ -638,7 +646,7 @@
                     case 4: 
                         displayShape("Cuboid");
 
-                        double cuboidBase   = radiusInput();
+                        double cuboidBase   = baseInput();
                         double cuboidHeight = heightInput();
                         double cuboidWidth  = widthInput();
 
@@ -669,9 +677,16 @@
 
                         displayShapeEnd(render, "Cone", surfaceArea, volume);
                     break;
+
+                    default: 
+                    invalidInput();
                 }
 
 
+            }
+
+            else{
+                invalidInput();
             }
 
             
@@ -684,7 +699,7 @@
                     errorMessage = false;
 
                 else {
-                    System.out.print("\nInvalid Input!");
+                    invalidInput();
                     errorMessage = true;}
             }
 
