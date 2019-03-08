@@ -4,6 +4,34 @@
  *  @author AKMAL 'AISY BIN RUDY (52052418001)
  *          DANISH IMRAN BIN MOHD ARIF ARCHI (52052418005)
  *
+ *  userBaseInput
+ *      PROMPT user for baseValue
+ *      GET baseValue
+ *
+ *      return baseValue
+ *  END
+ *
+ *  userHeightInput
+ *      PROMPT user for heightValue
+ *      GET heightValue
+ *
+ *      return heightValue
+ *  END
+ *
+ *  userWidthInput
+ *      PROMPT user for widthValue
+ *      GET widthValue
+ *
+ *      return widthValue
+ *  END
+ *
+ *  userRadiusInput
+ *      PROMPT user for radiusValue
+ *      GET radiusValue
+ *
+ *      return radiusValue
+ *  END
+ *
  *  CalculateShapes
  *      DO
  *          DISPLAY "====================================="
@@ -14,6 +42,90 @@
  *          GET userDimension
  *
  *          IF userDimension == 2
+ *              DISPLAY "==================================="
+ *              DISPLAY "2d shape code list"
+ *              DISPLAY "==================================="
+ *
+ *              PROMPT shapeCode
+ *              GET shapeCode
+ *
+ *              CASE OF shapeCode
+ *              'A' :
+ *                  DISPLAY Rectangle
+ *                  PROMPT shapeHeight
+ *                  GET shapeHeight
+ *
+ *                  PROMPT shapeBase
+ *                  GET shapeBase
+ *
+ *                  shapeArea       <- shapeHeight *  shapeBase
+ *                  shapePerimeter  <- (2 * shapeHeight) + (2 * shapeBase)
+ *
+ *                  DISPLAY shapeArea
+ *                  DISPLAY shapePerimeter
+ *
+ *             'D' :
+ *                 DISPLAY Triangle
+ *                 PROMPT shapeBase
+ *                 GET shapeBase
+ *
+ *                 PROMPT shapeHeight
+ *                 GET shapeHeight
+ *
+ *                 PROMPT shapeBaseB
+ *                 GET shapeBaseB
+ *
+ *                 PROMPT shapeBaseC
+ *                 GET shapeBaseC
+ *
+ *                 shapeArea       <- 0.5 * (shapeBase * shapeHeight)
+ *                 shapePerimeter  <- shapeBase + shapeBaseB + shapeBaseC
+ *
+ *                 DISPLAY shapeArea
+ *                 DISPLAY shapePerimeter
+ *
+ *             'B' :
+ *                 DISPLAY Square
+ *                 PROMPT shapeBase
+ *                 GET shapeBase
+ *
+ *                 PROMPT shapeHeight
+ *                 GET shapeHeight
+ *
+ *                 shapeArea      <- shapeBase * shapeHeight
+ *                 shapePerimeter <- (2 * shapeBase) + (2 * shapeHeight)
+ *
+ *                 DISPLAY shapeArea
+ *                 DISPLAY shapePerimeter
+ *
+ *             'E' :
+ *                 DISPLAY Circle
+ *                 PROMPT shapeRadius
+ *                 GET shapeRadius
+ *
+ *                 shapeArea      <- pi * (shapeRadius * shapeRadius)
+ *                 shapePerimeter <- 2 * pi * shapeRadius
+ *
+ *                 DISPLAY shapeArea
+ *                 DISPLAY shapePerimeter
+ *
+ *             'C' :
+ *                 DISPLAY Trapezium
+ *                 PROMPT shapeHeight
+ *                 GET shapeHeight
+ *
+ *                 PROMPT shapeBaseA
+ *                 GET shapeBaseA
+ *
+ *                 PROMPT shapeBaseB
+ *                 GET shapeBaseB
+ *
+ *                 shapeArea      <- ((shapeBaseA + shapeBaseB) / 2) * shapeHeight
+ *                 shapePerimeter <- shapeBase + shapeBaseB + shapeBaseC + shapeHeight
+ *
+ *                 DISPLAY shapeArea
+ *                 DISPLAY shapePerimeter
+ *
  *
  *
  *          ELSE IF userDimension == 3
@@ -22,13 +134,12 @@
  *              DISPLAY "===================================="
  *
  *              CASE OF shapeCode
- *              'a' :
+ *              'A' :
  *                  DISPLAY Cylinder
- *                  PROMPT shapeRadius
- *                  GET shapeRadius
  *
- *                  PROMPT shapeHeight
- *                  GET shapeHeight
+ *                  shapeRadius         <-  userRadiusInput
+ *                  shapeHeight         <-  userHeightInput
+ *
  *
  *                  shapeVolume         <-  pi * ((shapeRadius * shapeRadius) * shapeHeight)
  *                  shapeSurfaceArea    <-  (2 * pi * shapeRadius * shapeHeight) +
@@ -40,20 +151,45 @@
  *                  DISPLAY shapeSurfaceArea
  *                  DISPLAY shapePerimeter
  *
- *              'b' :
+ *              'D' :
  *                  DISPLAY Pyramid
  *
- *              'c' :   DISPLAY Sphere
- *              'd' :
+ *                  shapeBase           <-  userBaseInput
+ *                  shapeHeight         <-  userHeightInput
+ *                  shapeWidth          <-  userWidthInput
+ *
+ *
+ *                  shapeVolume         <-  (shapeBase * shapeHeight * shapeWidth) / 3
+ *
+ *                  shapeSurfaceArea    <-  (shapeBase * shapeWidth) +
+ *                                          (shapeBase * Math.sqrt(
+ *                                                              (shapeWidth / 2) * (shapeWidth / 2)) +
+ *                                                              (shapeHeight * shapeHeight))) +
+ *                                          (shapeWidth * Math.sqrt(
+ *                                                              ((0.5) * (0.5)) +
+ *                                                              (shapeHeight * shapeHeight)))
+ *
+ *                  DISPLAY shapeVolume
+ *                  DISPLAY shapeSurfaceArea
+ *
+ *              'B' :
+ *                  DISPLAY Sphere
+ *
+ *                  shapeRadius         <-  userRadiusInput
+ *
+ *                  shapeVolume         <-  1.333 * (pi * (shapeRadius * shapeRadius * shapeRadius))
+ *                  shapeSurfaceArea    <-  4 * (pi * (shapeRadius * shapeRadius)
+ *
+ *                  DISPLAY shapeVolume
+ *                  DISPLAY shapeSurfaceArea
+ *
+ *              'E' :
  *                  DISPLAY Cuboid
- *                  PROMPT shapeBase
- *                  GET shapeBase
  *
- *                  PROMPT shapeHeight
- *                  GET shapeHeight
+ *                  shapeBase           <-  userBaseInput
+ *                  shapeHeight         <-  userHeightInput
+ *                  shapeWidth          <-  userWidthInput
  *
- *                  PROMPT shapeWidth
- *                  GET shapeWidth
  *
  *                  shapeVolume         <-  shapeBase * shapeHeight * shapeWidth
  *                  shapeSurfaceArea    <-  (2 * shapeBase * shapeWidth) + (2 * shapeBase * shapeHeight) +
@@ -66,22 +202,27 @@
  *                  DISPLAY shapeArea
  *                  DISPLAY shapePerimeter
  *
- *              'e' :
+ *              'C' :
  *                  DISPLAY Cone
  *
- *                  PROMPT shapeHeight
- *                  GET shapeHeight
+ *                  shapeHeight         <-  userHeightInput
+ *                  shapeRadius         <-  userRadiusInput
  *
- *                  PROMPT shapeRadius
- *                  GET shapeRadius
  *
  *                  shapeVolume         <-  pi * ((shapeRadius * shapeRadius) * (shapeHeight / 3))
  *                  shapeSurfaceArea    <-  pi * shapeRadius * ( shapeRadius +
  *                                                               Math.sqrt((shapeHeight * shapeHeight) +
  *                                                                         (shapeRadius * shapeRadius)))
+ *
+ *                  DISPLAY shapeVolume
+ *                  DISPLAY shapeSurfaceArea
+ *
  *              END CASE
  *          ENDIF
- *          ENDIF
+ *          ENDIFs
+ *
+ *      PROMPT repeat
+ *      GET repeat
  *
  *      WHILE ( repeat != 'N' AND 'n' )
  *      END DO
@@ -91,11 +232,14 @@
  */
 import java.util.*;
 import java.lang.Math;
+import java.text.DecimalFormat;
 
 public class akmalCode2
 {
     //  Global file-wide input scanner declaration.
-    private static Scanner scShapes     =   new Scanner(System.in);
+    private static DecimalFormat decimalFormat  =   new DecimalFormat(".###");
+
+    private static Scanner scShapes             =   new Scanner(System.in);
 
 
     /*
@@ -105,11 +249,14 @@ public class akmalCode2
      *
      *  Improves future maintainability and implementation.
      */
-    private static double userBaseInput()
+
+    //  userBaseInput takes a char of side in-order to label
+    //  multiple sides.
+    private static double userBaseInput(char side)
     {
         double baseValue;
 
-        System.out.print("Enter the base : ");
+        System.out.print("Enter the base " + side + " : ");
         baseValue                       =   scShapes.nextDouble();
 
         return baseValue;
@@ -161,8 +308,11 @@ public class akmalCode2
         double shapeWidth;
         double shapeRadius;
 
-        //  Trapezium Base B
+        //  Trapezium and Triangle base B, C, D
         double shapeBaseB;
+        double shapeBaseC;
+        double shapeBaseD;
+
 
         double shapePerimeter;
         double shapeVolume;
@@ -177,8 +327,10 @@ public class akmalCode2
         do
         {
             System.out.print("===============================================\n");
-            System.out.print("Dimensional List :\n");
-            System.out.print("2 : 2D\t\t" + "3 : 3D\t\t\t\t\n");
+            System.out.print("\t\t\u001b[33mWelcome to the Shape calculator\u001b[0m\n");
+            System.out.print("\t\t\t\tBy Akmal & Danish\n\n");
+            System.out.print("Dimensional List :\n\n");
+            System.out.print("\t\t1. \u001b[31;1m[2]2D\u001b[0m\t\t" + "2. \u001b[35;1m[3]3D\u001b[0m\n");
             System.out.print("===============================================\n");
 
             System.out.print("Which dimensions do you wish to calculate ? ");
@@ -192,108 +344,132 @@ public class akmalCode2
             {
                 //  Display user prompt for 2D shapes
                 System.out.print("\n\n\n===============================================\n");
-                System.out.print("\t\t2D shapes code List :\n");
-                System.out.print("a. Rectangle\t\t");
-                System.out.print("b. Triangle\n");
-                System.out.print("c. Square\t\t\t");
-                System.out.print("d. Circle\n");
-                System.out.print("e. Trapezium\n");
+                System.out.print("\t\t\u001b[34;1m2D shapes code List :\u001b[0m\n\n");
+                System.out.print("1. \u001b[33;1m[A]Rectangle\u001b[0m\t\t");
+                System.out.print("4. \u001b[36;1m[D]Triangle\u001b[0m\n");
+                System.out.print("2. \u001b[31;1m[B]Square\u001b[0m\t\t");
+                System.out.print("5. \u001b[30;1m[E]Circle\u001b[0m\n");
+                System.out.print("3. \u001b[35;1m[C]Trapezium\u001b[0m\n");
                 System.out.print("===============================================\n\n\n\n");
 
 
                 System.out.print("Please enter a shape code from the list: ");
-                shapeCode               =   scShapes.next().charAt(0);
+                shapeCode                       =   scShapes.next().charAt(0);
 
                 switch(shapeCode)
                 {
-                    case 'a':
+                    case 'A':
 
-                        System.out.print("\n\nYou have chosen a Rectangle\n");
+                        System.out.print("\n\nYou have chosen a \u001b[33;1mRectangle\u001b[0m\n");
 
-                        //Area of Rectangle    = Height * Base
-                        //Perimeter            = (2 * Base) + (2 * Height)        
+                        //Area of Rectangle    =    Height * Base
+                        //Perimeter            =    (2 * Base) + (2 * Height)
 
-                        shapeHeight            = userHeightInput();
-                        shapeBase              = userBaseInput();
+                        shapeHeight            =    userHeightInput();
+                        shapeBase              =    userBaseInput(' ');
 
-                        shapeArea              = shapeHeight * shapeBase;
+                        shapeArea              =    shapeHeight * shapeBase;
 
-                        shapePerimeter         = (2 * shapeBase) + (2 * shapeHeight);
+                        shapePerimeter         =    (2 * shapeBase) + (2 * shapeHeight);
 
-                        System.out.print("\nThe Area of Rectangle: " + shapeArea + "cm^2");
-                        System.out.print("\nThe Perimeter of Rectangle: " + shapePerimeter + "cm");
+                        System.out.print("\n\u001b[32;1mThe Area of Rectangle:\u001b[0m \t\t\t" +
+                                                    decimalFormat.format(shapeArea) + "\u001b[33m cm\u00b2 \u001b[0m");
+
+                        System.out.print("\n\u001b[32;1mThe Perimeter of Rectangle:\u001b[0m \t" +
+                                                    decimalFormat.format(shapePerimeter) + "\u001b[33m cm \u001b[0m");
                         break;
 
-                    case 'b':
+                    case 'D':
                         
-                        System.out.print("\n\nYou have chosen Triangle\n");
+                        System.out.print("\n\nYou have chosen \u001b[36;1mTriangle\u001b[0m\n");
                         
-                        //Area of Triangle      = 1/2 * Base * Height
-                        //Perimeter             = (2 * Base) * Height
+                        //Area of Triangle      =   1/2 * Base * Height
+                        //Perimeter             =   shapeBaseA + shapeBaseB + shapeBaseC
                         
-                        shapeBase               = userBaseInput();
-                        shapeHeight             = userHeightInput();
+                        shapeBase               =   userBaseInput('A');
+                        shapeBaseB              =   userBaseInput('B');
+                        shapeBaseC              =   userBaseInput('C');
+                        shapeHeight             =   userHeightInput();
+
                         
-                        shapeArea               = 1/2 * shapeBase * shapeHeight;
+                        shapeArea               =   (0.5) * (shapeBase * shapeHeight);
                         
-                        shapePerimeter          = (2 * shapeBase) + shapeHeight;
+                        shapePerimeter          =   shapeBase + shapeBaseB + shapeBaseC;
                         
-                        System.out.print("\nThe Area of Triangle: " + shapeArea + "cm^2");
-                        System.out.print("\nThe Perimeter of Triangle: " + shapePerimeter + "cm");
+                        System.out.print("\n\u001b[32;1mThe Area of Triangle: \u001b[0m\t\t" +
+                                                    decimalFormat.format(shapeArea) + "\u001b[33m cm\u00b2 \u001b[0m");
+
+                        System.out.print("\n\u001b[32;1mThe Perimeter of Triangle: \u001b[0m\t" +
+                                                    decimalFormat.format(shapePerimeter) + "\u001b[33m cm \u001b[0m");
                         break;
 
-                    case 'c':
+                    case 'B':
                         
-                        System.out.print("\n\nYou have chosen Square\n");
+                        System.out.print("\n\nYou have chosen \u001b[31;1mSquare\u001b[0m\n");
                         
-                        //Area of Square        = Base * Height
-                        //Perimeter             = (2 * Base) + (2 * Height)
+                        //Area of Square        =   Base * Height
+                        //Perimeter             =   (2 * Base) + (2 * Height)
                         
-                        shapeBase               = userBaseInput();
-                        shapeHeight             = userHeightInput();
+                        shapeBase               =   userBaseInput(' ');
+
+                        shapeArea               =   shapeBase * shapeBase;
                         
-                        shapeArea               = shapeBase * shapeHeight;
+                        shapePerimeter          =   shapeBase * 4;
                         
-                        shapePerimeter          = (2 * shapeBase) + (2 * shapeHeight);
-                        
-                        System.out.print("\nThe Area of Triange: " + shapeArea + "cm^2");
-                        System.out.print("\nThe Perimeter of Triangle: " + shapePerimeter + "cm");
+                        System.out.print("\n\u001b[32;1mThe Area of Square: \u001b[0m\t\t" +
+                                                    decimalFormat.format(shapeArea) + "\u001b[33m cm\u00b2 \u001b[0m");
+
+                        System.out.print("\n\u001b[32;1mThe Perimeter of Square: \u001b[0m\t" +
+                                                    decimalFormat.format(shapePerimeter) + "\u001b[33m cm \u001b[0m");
                         break;
 
-                    case 'd':
+                    case 'E':
                         
-                        System.out.print("\n\nYou have chosen Circle\n");
+                        System.out.print("\n\nYou have chosen \u001b[30;1mCircle\u001b[0m\n");
                         
-                        //Area of Circle         = pi * (Radius * Radius)
-                        //Perimeter of Circle    = 2 * pi * Radius
+                        //Area of Circle        =   pi * (Radius * Radius)
+                        //Perimeter of Circle   =   2 * pi * Radius
                         
-                        shapeRadius              = userRadiusInput();
+                        shapeRadius             =   userRadiusInput();
                         
-                        shapeArea                = pi * (shapeRadius * shapeRadius);
+                        shapeArea               =   pi * (shapeRadius * shapeRadius);
                         
-                        shapePerimeter           = 2 * pi * shapeRadius;
+                        shapePerimeter          =   2 * pi * shapeRadius;
                         
-                        System.out.print("\nThe Area of Circle: " + shapeArea + "cm^2");
-                        System.out.print("\nThe Perimeter of Cricle: " + shapePerimeter + "cm");
+                        System.out.print("\n\u001b[32;1mThe Area of Circle: \u001b[0m\t\t" +
+                                                    decimalFormat.format(shapeArea) + "\u001b[33m cm\u00b2 \u001b[0m");
+
+                        System.out.print("\n\u001b[32;1mThe Perimeter of Circle: \u001b[0m\t" +
+                                                    decimalFormat.format(shapePerimeter) + "\u001b[33m cm \u001b[0m");
                         break;
 
-                    case 'e':
+                    case 'C':
                         
-                        System.out.print("\n\nYou have chosen Trapezium\n");
+                        System.out.print("\n\nYou have chosen \u001b[35;1mTrapezium\u001b[0m\n");
                         
-                        //Area of Trapezium      = ((BaseA + BaseB) /2) * Height
-                        //Perimeter              = (2 * Base) + (2 * Height)
+                        //Area of Trapezium     =   ((BaseA + BaseB) /2) * Height
+                        //Perimeter             =   shapeBase + shapeBaseB + shapeBaseC + shapeHeight
 
-                        shapeHeight              = userHeightInput();
-                        shapeBase                = userBaseInput();
-                        shapeBaseB               = userBaseInput();
+                        shapeHeight             =   userHeightInput();
+                        shapeBase               =   userBaseInput('A');
+                        shapeBaseB              =   userBaseInput('B');
+                        shapeBaseC              =   userBaseInput('C');
+                        shapeBaseD              =   userBaseInput('D');
 
-                        shapeArea                = (( shapeBase + shapeBaseB ) /2 ) * shapeHeight;
 
-                        shapePerimeter           = (2 * shapeBase) + (2 * shapeHeight);
+                        shapeArea               =   (( shapeBase + shapeBaseB ) /2 ) * shapeHeight;
 
-                        System.out.print("\nThe Area of Trapezium: " + shapeArea + " cm^2");
-                        System.out.print("\nThe Perimeter of Trapezium: " + shapePerimeter + " cm^2");
+                        shapePerimeter          =   shapeBase + shapeBaseB + shapeBaseC + shapeBaseD;
+
+                        System.out.print("\n\u001b[32;1mThe Area of Trapezium: \u001b[0m\t\t\t" +
+                                                    decimalFormat.format(shapeArea) + "\u001b[33m cm\u00b2 \u001b[0m");
+
+                        System.out.print("\n\u001b[32;1mThe Perimeter of Trapezium: \u001b[0m\t" +
+                                                    decimalFormat.format(shapePerimeter) + "\u001b[33m cm \u001b[0m");
+                        break;
+
+                    default:
+                        System.out.print("\n\u001b[31mYou have entered an invalid shape code");
                         break;
                 }
 
@@ -307,21 +483,21 @@ public class akmalCode2
             {
                 //  Display user prompt for 3D shapes
                 System.out.print("\n\n===============================================\n");
-                System.out.print("3D shapes code List :\n");
-                System.out.print("a. Cylinder\t\t");
-                System.out.print("b. Pyramid\n");
-                System.out.print("c. Sphere\t\t");
-                System.out.print("d. Cuboid\n");
-                System.out.print("e. Cone\n");
+                System.out.print("\t\t\t\u001b[34;1m3D shapes code List :\u001b[0m\n\n");
+                System.out.print("1. \u001b[33;1m[A]Cylinder\u001b[0m\t\t");
+                System.out.print("4. \u001b[36;1m[D]Pyramid\u001b[0m\n");
+                System.out.print("2. \u001b[31;1m[B]Sphere\u001b[0m\t\t");
+                System.out.print("5. \u001b[30;1m[E]Cuboid\u001b[0m\n");
+                System.out.print("3. \u001b[35;1m[C]Cone\u001b[0m\n");
                 System.out.print("===============================================\n\n");
 
                 //  PROMPT the user for shape code and GET shape code
                 System.out.print("Please enter a shape code from the list: ");
-                shapeCode               =   scShapes.next().charAt(0);
+                shapeCode                   =   scShapes.next().charAt(0);
 
                 switch(shapeCode)
                 {
-                    case 'a':
+                    case 'A':
 
                         System.out.print("\n\nYou have chosen a Cylinder\n");
 
@@ -333,56 +509,77 @@ public class akmalCode2
                         shapeSurfaceArea    =   (2 * pi * shapeRadius * shapeHeight) +
                                                 (2 * pi * (shapeRadius * shapeRadius));
 
-                        shapePerimeter      =   2 * ( pi * ((shapeRadius * 2) + shapeHeight));
+                        //  DISPLAY VOLUME AND SURFACE AREA
+                        System.out.print("\n\u001b[32;1mThe volume of the Cylinder: \u001b[0m\t\t" +
+                                                        decimalFormat.format(shapeVolume) + "\u001b[33m cm\u00b3 \u001b[0m");
 
-                        System.out.print("\nThe volume of the Cylinder: " + shapeVolume + " cm^3");
-                        System.out.print("\nThe Surface Area of the Cylinder: " + shapeSurfaceArea + " cm^3");
-                        System.out.print("\n The Circumference of the Cylinder: " + shapePerimeter + " cm");
+                        System.out.print("\n\u001b[32;1mThe Surface Area of the Cylinder: \u001b[0m\t" +
+                                                        decimalFormat.format(shapeSurfaceArea) + "\u001b[33m cm\u00b3 \u001b[0m");
 
                         break;
 
-                    case 'b':
+                    case 'D':
 
                         System.out.print("\n\nYou have chosen a Pyramid\n");
 
-                        shapeBase           =   userBaseInput();
+                        shapeBase           =   userBaseInput(' ');
                         shapeHeight         =   userHeightInput();
                         shapeWidth          =   userWidthInput();
 
                         shapeVolume         =   (shapeBase * shapeWidth * shapeHeight) / 3;
 
                         //  Surface area of Pyramid : A = lw + (l * sqrt((w/2)^2 + h^2) + w * sqrt((1/2)^2 + h^2))
+                        //
+                        //  shapeSurfaceArea    <-  (shapeBase * shapeWidth) +
+                        //                          (shapeBase * Math.sqrt(
+                        //                                              (shapeWidth / 2) * (shapeWidth / 2)) +
+                        //                                              (shapeHeight * shapeHeight))) +
+                        //                          (shapeWidth * Math.sqrt(
+                        //                                              ((0.5) * (0.5)) +
+                        //                                              (shapeHeight * shapeHeight)))
+                        //
                         shapeSurfaceArea    =   (shapeBase * shapeWidth) +
                                                 (shapeBase * Math.sqrt(
                                                                 ((shapeWidth / 2) * (shapeWidth / 2)) +
                                                                 (shapeHeight * shapeHeight))) +
                                                 (shapeWidth * Math.sqrt(
-                                                                ((1 / 2) * (1 / 2)) +
+                                                                ((shapeBase / 2) * (shapeBase / 2)) +
                                                                 (shapeHeight * shapeHeight)));
 
-                        System.out.print("\nThe volume of the Pyramid: \t\t\t" + shapeVolume + " cm^3");
-                        System.out.print("\nThe Surface Area of the Pyramid: \t" + shapeSurfaceArea + " cm^3");
+                        //  DISPLAY VOLUME AND SURFACE AREA
+                        System.out.print("\n\u001b[32;1mThe volume of the Pyramid: \u001b[0m\t\t\t" +
+                                                        decimalFormat.format(shapeVolume) +
+                                                        "\u001b[33m cm\u00b3 \u001b[0m");
+
+                        System.out.print("\n\u001b[32;1mThe Surface Area of the Pyramid: \u001b[0m\t" +
+                                                        decimalFormat.format(shapeSurfaceArea) +
+                                                        "\u001b[33m cm\u00b3 \u001b[0m");
                         break;
 
-                    case 'c':
+                    case 'B':
 
                         System.out.print("\n\nYou have chosen a Sphere\n");
 
                         shapeRadius         =   userRadiusInput();
 
-                        shapeVolume         =   4 / 3 * (pi * (shapeRadius * shapeRadius * shapeRadius));
+                        shapeVolume         =   1.333 * (pi * (shapeRadius * shapeRadius * shapeRadius));
 
                         shapeSurfaceArea    =   4 * (pi * (shapeRadius * shapeRadius));
 
-                        System.out.print("\nThe volume of the Sphere: " + shapeVolume + " cm^3");
-                        System.out.print("\nThe Surface Area of the Sphere: " + shapeSurfaceArea + " cm^3");
+                        //  DISPLAY VOLUME AND SURFACE AREA
+                        System.out.print("\n\u001b[32;1mThe volume of the Sphere: \u001b[0m\t\t\t" +
+                                                    decimalFormat.format(shapeVolume) +
+                                                    "\u001b[33m cm\u00b3 \u001b[0m");
+
+                        System.out.print("\n\u001b[32;1mThe Surface Area of the Sphere: \u001b[0m\t" +
+                                                    decimalFormat.format(shapeSurfaceArea) +
+                                                    "\u001b[33m cm\u00b3 \u001b[0m");
                         break;
 
-                    case 'd':
+                    case 'E':
 
-                        //  volume of cube  =   Base * width * height
                         System.out.print("\n\nYou have chosen a Cuboid\n");
-                        shapeBase           =   userBaseInput();
+                        shapeBase           =   userBaseInput(' ');
                         shapeHeight         =   userHeightInput();
                         shapeWidth          =   userWidthInput();
 
@@ -398,13 +595,18 @@ public class akmalCode2
                                                 (2 * shapeBase * shapeHeight) +
                                                 (2 * shapeHeight * shapeWidth);
 
-                        //  DISPLAY shapeVolume and shapeSurfaceArea
-                        System.out.print("\nThe volume of the Cuboid: \t\t\t" + shapeVolume + " cm^3");
-                        System.out.print("\nThe Surface Area of the Cuboid: \t" + shapeSurfaceArea + " cm^3");
+                        //  DISPLAY VOLUME AND SURFACE AREA
+                        System.out.print("\n\u001b[32;1mThe volume of the Cuboid: \u001b[0m\t\t\t" +
+                                                    decimalFormat.format(shapeVolume) +
+                                                    " \u001b[33m cm\u00b3 \u001b[0m");
+
+                        System.out.print("\n\u001b[32;1mThe Surface Area of the Cuboid: \u001b[0m\t" +
+                                                    decimalFormat.format(shapeSurfaceArea) +
+                                                    "\u001b[33m cm\u00b3 \u001b[0m");
 
                         break;
 
-                    case 'e':
+                    case 'C':
 
                         System.out.print("\n\nYou have chosen a Cone\n");
 
@@ -424,25 +626,30 @@ public class akmalCode2
                                                                     (shapeRadius * shapeRadius))
                                                 );
 
-                        //  DISPLAY shapeVolume and shapeSurfaceArea
-                        System.out.print("\nThe volume of the Cone: \t\t" + shapeVolume + " cm^3");
-                        System.out.print("\nThe Surface Area of the Cone: \t" + shapeSurfaceArea + " cm^3");
+                        //  DISPLAY VOLUME AND SURFACE AREA
+                        System.out.print("\n\u001b[32;1mThe volume of the Cone: \u001b[0m\t\t" +
+                                                    decimalFormat.format(shapeVolume) +
+                                                    "\u001b[33m cm\u00b3 \u001b[0m");
+
+                        System.out.print("\n\u001b[32;1mThe Surface Area of the Cone: \u001b[0m\t" +
+                                                    decimalFormat.format(shapeSurfaceArea) +
+                                                    "\u001b[33m cm\u00b3 \u001b[0m");
                         break;
 
                     default:
 
-                        System.out.print("You have entered an invalid shape code");
+                        System.out.print("\u001b[31mYou have entered an invalid shape code\u001b[0m");
                         break;
                 }
             }
 
             else {
-                System.out.print("\nYou have entered an invalid dimension");
+                System.out.print("\n\u001b[31mYou have entered an invalid dimension\u001b[0m");
             }
 
-            System.out.print("\n\nDo you wish to continue? y/n ");
+            System.out.print("\n\n\u001b[31mDo you wish to continue? [Y]/[N] \u001b[0m");
             repeat                      =   scShapes.next().charAt(0);
 
-        } while ( repeat != 'n');
+        } while ( repeat != 'N');
     }
 }
