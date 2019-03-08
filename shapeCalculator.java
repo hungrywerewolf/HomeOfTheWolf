@@ -1,5 +1,6 @@
-/** Author: Syahir 52052418006
- *          Amirul 52052418004
+/** 
+ *        Author: Syahir 52052418006
+ *                Amirul 52052418004
  * 
  *  Date Created: 09022019
  * 
@@ -15,140 +16,473 @@
  *                                                                                          *
  *                                                                                          *
  ********************************************************************************************
- *
- *      ShapeCalculator
- * 
  *  
  * 
+ *  heightInput
+ *      PROMPT user for heightValue
+ *      GET heightValue
+ *      RETURN heightValue
+ *  END
+ * 
+ * 
+ *  widthInput
+ *      PROMPT user for widthValue
+ *      GET widthValue
+ *      RETURN heightValue
+ *  END
+ * 
+ * 
+ *  lengthInput
+ *      PROMPT user for lengthValue
+ *      GET lengthValue
+ *      RETURN lengthValue
+ *  END
+ *
+ * 
+ *  radiusInput
+ *      PROMPT user for radiusValue
+ *      GET radiusValue
+ *      RETURN radiusValue
+ *  END
+ * 
+ * 
+ *  topInput
+ *      PROMPT user for topValue
+ *      GET topValue
+ *      RETURN topValue
+ *  END
+ * 
+ * 
+ *  baseInput
+ *      PROMPT user for baseValue
+ *      GET baseValue
+ *      RETURN baseValue
+ *  END
+ * 
+ * 
+ *  sideInput
+ *      PROMPT user for sideValue
+ *      GET sideValue
+ *      RETURN sideValue
+ *  END
+ * 
+ * 
+ *  side2Input
+ *      PROMPT user for side2Value
+ *      GET side2Value
+ *      RETURN side2Value
+ *  END
+ * 
+ * 
+ *  triangleSide
+ *      IF sideSelector == 1 THEN
+ *          PROMPT sideTriangle
+ *          GET sideTriangle
+ * 
+ *      ELSE IF sideSelector == 2 THEN
+ *          PROMPT sideTriangle
+ *          GET sideTriangle
+ * 
+ *      ELSE IF sideSelector == 3 THEN
+ *          PROMPT sideTriangle
+ *          GET sideTriangle
+ *      END IF
+ *      END IF
+ *      END IF
+ *      RETURN sideTriangle
+ *  END
+ * 
+ * 
+ *  displayShape
+ *      DISPLAY shape
+ *  END
+ * 
+ * 
+ *  displayShapeEnd
+ *      IF render == 2 THEN
+ *          DISPLAY shapeType and areaValue
+ *          DISPLAY shapeType and perimeterValue
+ * 
+ *      ELSE IF render == 3 THEN
+ *          DISPLAY shapeType and VolumeValue
+ *          DISPLAY shapeType and surfaceAreaValue
+ *      END IF
+ *      ENF IF
+ * invalidInput
+ *  END
+ * 
+ * invalidInput
+ *  DISPLAY invalid input
+ * END
+ * 
+ * 
+ *  shapeCalculator
+ *  DISPLAY startPage
+ *  
+ *  DO
+ *      boolean errorMessage = true
+ *      PROMPT render
+ *      GET render
+ *      
+ *      IF render == 2 THEN
+ *          PROMPT shapeSelector
+ *          GET shapeSelector
+ *  
+ *              CASE OF shapeSelector
+ *              1:
+ *              displayShape(rectangle)
+ *              rectangleWidth  <= widthInput()
+ *              rectangleHeight <= heightInput()
+ *  
+ *              area <= rectangleHeight * rectangleWidth
+ *              perimeter <= (rectangleHeight^2)+(rectangleWidth^2)
+ * 
+ *              displayShapeEnd(render, "rectangle", area, perimeter)
+ * 
+ *              2:
+ *              displayShape(square)
+ *              squareWidth  <= widthInput()
+ *              squareHeight <= heightInput()
+ *  
+ *              area <= rectangleHeight * rectangleWidth
+ *              perimeter <= (rectangleHeight^2)+(rectangleWidth^2)
+ * 
+ *              displayShapeEnd(render, "square", area, perimeter)
+ * 
+ *              3:
+ *              displayShape(triangle)
+ *              triangleS1 <= triangleSide(1)
+ *              triangleS2 <= triangleSide(2)
+ *              triangleS3 <= triangleSide(3)
+ *  
+ *              area      <= (triangleS1 + triangleS2 + triangleS3)/2
+ *              perimeter <= triangleS1 + triangleS2 + triangleS3
+ *              
+ *              displayShapeEnd(render, "triangle", area, perimeter)
+ * 
+ *              4:
+ *              displayShape(circle)
+ *              circleRadius <= radiusInput()
+ * 
+ *              area      <= PI *(circleRadius^2)
+ *              perimeter <= 2 * PI * circleRadius
+ *  
+ *              displayShapeEnd(render, "circle", area, perimeter)
+ * 
+ *              5:
+ *              displayShape(Trapezium)
+ *              trapeziumTop    <= topInput()
+ *              trapeziumBase   <= baseInput()
+ *              trapeziumSide1  <= sideInput()
+ *              trapeziumSide2  <= side2Input()
+ *              trapeziumHeight <= heightInput()
+ * 
+ *              area      <= (trapeziumTop + trapeziumBase) * trapeziumHeight/2
+ *              perimeter <= trapeziumTop + trapeziumBase + trapeziumSide1 + trapeziumSide2
+ * 
+ *              displayShapeEnd(render, "Trapezium", area, perimeter) 
+ *              
+ *              default:
+ *              invalidInput
+ * 
+ *              END CASE
+ * 
+ *      ELSE IF render == 3 THEN
+ *          PROMPT shapeSelector
+ *          GET shapeSelector
+ * 
+ *              CASE OF shapeSelector
+ *              1:
+ *              displayShape("Cylinder")
+ *              cylinderHeight <= heightInput()
+ *              cylinderRadius <= radiusInput()
+ *  
+ *              volume      <= PI * ((cylinderRadius * cylinderRadius) * cylinderHeight)
+ *              surfaceArea <= (2 * PI * cylinderRadius * cylinderHeight) + (2 * PI * cylinderRadius * cylinderRadius)
+ *              
+ *              displayShapeEnd(render, "Cylinder", surfaceArea, volume)
+ * 
+ *              2:
+ *              displayShape("Pyramid")
+ *              double pyramidWidth  <= widthInput()
+ *              double pyramidHeight <= heightInput()
+ *              double pyramidBase   <= baseInput()
+ *
+ *              volume      <= (pyramidBase * pyramidWidth * pyramidHeight) / 3
+ *              surfaceArea <= (pyramidBase * pyramidWidth) + (pyramidBase * 
+ *                              Math.sqrt(((pyramidWidth / 2) * (pyramidWidth / 2)) + 
+ *                              (pyramidHeight * pyramidHeight))) + (pyramidWidth * 
+ *                              Math.sqrt(((1 / 2) * (1 / 2)) + (pyramidHeight * pyramidHeight)))
+ *
+ *              displayShapeEnd(render, "Pyramid", surfaceArea, volume)
+ * 
+ *              3: 
+ *              displayShape("Sphere")
+ *              double sphereRadius <= radiusInput()
+ *
+ *              volume      <= 4 / 3 * (Math.PI * (sphereRadius * sphereRadius * sphereRadius))
+ *              surfaceArea <= 4 * (Math.PI * (sphereRadius * sphereRadius))
+ *
+ *              displayShapeEnd(render, "Sphere", surfaceArea, volume)
+ * 
+ *              4: 
+ *              displayShape("Cuboid")
+ *              double cuboidBase   <= radiusInput()
+ *              double cuboidHeight <= heightInput()
+ *              double cuboidWidth  <= widthInput()
+ *
+ *              volume      <= cuboidBase * cuboidHeight * cuboidWidth
+ *              surfaceArea <= (2 * cuboidBase * cuboidWidth) + 
+ *                             (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth)
+ *
+ *              displayShapeEnd(render, "Cuboid", surfaceArea, volume)
+ * 
+ *              5: 
+ *              displayShape("Cone");
+ *              double coneRadius <= radiusInput();
+ *              double coneHeight <= heightInput();
+ *
+ *              volume      <= Math.PI * ((coneRadius * coneRadius) * (coneHeight / 3))
+ *              surfaceArea <= Math.PI * coneRadius * (coneRadius + 
+ *                             Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)))
+ *
+ *              displayShapeEnd(render, "Cone", surfaceArea, volume);
+ *              
+ *              default:
+ *              invalidInput
+ * 
+ *              END CASE
+ * 
+ *      ELSE
+ *          invalidInput
+ * 
+ *      END IF
+ *      END IF
+ *      END IF
+ * 
+ *              WHILE errorMessage
+ *                  PROMPT user for choice
+ *                  IF choice y OR n THEN
+ *                      errorMessage <= false
+ *  
+ *                  ELSE
+ *                  DISPLAY invalid input
+ *                      errorMessage <= true
+ *              WHILE (choice == y)
+ *              END DOWHILE
+ *              END WHILE
+ *  DISPLAY thank you
+ *  END
  */
 
  import java.util.*;
- import java.lang.Math.*;
-
+ import java.lang.Math;
+ import java.text.*;
 
  public class shapeCalculator{
 
+
+    //This is to take input from user
     static Scanner sc = new Scanner (System.in);
 
-    public shapeCalculator(){}
+    //This is to limit the decimal points to 3
+    static DecimalFormat numberFormat = new DecimalFormat("#.000");
 
-    //Prompt user for height and gave output
+
+    /*
+     * Basic I/O are in these few methods 
+     * to avoid repetitive code in main method
+     */
+
+    //Prompt user for height and gives output
     static double heightInput(){
 
         double heightOutput;
 
-        System.out.print("\nInsert height: ");
+        System.out.print("Insert height value in centimeters: ");
         return heightOutput = sc.nextDouble();
     }
 
 
 
-    //Prompt user for width and gave output
+    //Prompt user for width and gives output
     static double widthInput(){
 
         double widthOutput;
 
-        System.out.print("\nInsert width: ");
+        System.out.print("Insert width value in centimeters: ");
         return widthOutput = sc.nextDouble();
     }
 
 
 
-    //Prompt user for length and gave output
+    //Prompt user for length and gives output
     static double lengthInput(){
 
         double lengthOutput;
 
-        System.out.print("\nInsert length: ");
+        System.out.print("Insert length value in centimeters: ");
         return lengthOutput = sc.nextDouble();
     }
 
 
     
-    //Prompt user for radius and gave output
+    //Prompt user for radius and gives output
     static double radiusInput(){
 
         double radiusOutput;
 
-        System.out.print("\nInsert radius: ");
+        System.out.print("Insert radius value in centimeters: ");
         return radiusOutput = sc.nextDouble();
     }
 
 
-    //Prompt user for top value and gave output
+    //Prompt user for top value and gives output
     static double topInput(){
 
         double topOutput;
 
-        System.out.print("\nInsert top value: ");
+        System.out.print("Insert top value in centimeters: ");
         return topOutput = sc.nextDouble();
     }
-
-
     
-    //Prompt user for base value and gave output
+
+
+    //Prompt user for base value and gives output
     static double baseInput(){
 
         double baseOutput;
 
-        System.out.print("\nInsert base value: ");
+        System.out.print("Insert base value in centimeters: ");
         return baseOutput = sc.nextDouble();
     }
 
+    //Prompt user for side value and gives output
+    static double sideInput(){
 
-    //Prompt user selected shape type
+        double baseOutput;
+
+        System.out.print("Insert side value in centimeters: ");
+        return baseOutput = sc.nextDouble();
+    }
+
+    //Prompt user for second value and gives output
+    static double side2Input(){
+
+        double baseOutput;
+
+        System.out.print("Insert another side value in centimeters: ");
+        return baseOutput = sc.nextDouble();
+    }
+
+    //Prompt user for triangle value and gives output
+    static double triangleSide(int sideSelector){
+
+        double triangleSide = 0;
+
+        if(sideSelector == 1){
+            System.out.print("First side of the triangle in centimeters: ");
+            triangleSide= sc.nextDouble();
+        }
+        
+        else if(sideSelector == 2){
+            System.out.print("Second side of the triangle in centimeters: ");
+            triangleSide= sc.nextDouble();
+        }
+
+        else if(sideSelector == 3){
+            System.out.print("Third side of the triangle in centemeters: ");
+            triangleSide= sc.nextDouble();
+        }
+
+        return triangleSide;
+    }
+
+
+
+    //Display user selected shape type
     static void displayShape(String shapetype){
 
-        System.out.print("\nYou have selected " + shapetype);
+        System.out.print("\nYou have selected " + shapetype + "\n");
     }
 
 
 
-    //Prompt user for end result for 2D shape
-    static void displayShapeEnd2D(String shapetype, double areaOutput, double parameterOutput){
+    //Display user end result
+    //surfaceArea is both surfaceArea and Area
+    //volPar is both volume and perimeter
+    static void displayShapeEnd(char render, String shapetype, double surfaceAreaOutput, double volPerOutput){
 
-        System.out.print("the " + shapetype + " area is " + areaOutput);
-        System.out.print("\nthe " + shapetype + " parameter is " + parameterOutput); 
+
+        if(render == '2'){
+            System.out.print("\nthe " + shapetype + " area is " + numberFormat.format(surfaceAreaOutput));
+            System.out.print("\nthe " + shapetype + " perimeter is " + numberFormat.format(volPerOutput));
+        }
+        
+        else if(render == '3'){
+            System.out.print("\nThe " + shapetype + " volume is " + numberFormat.format(volPerOutput));
+            System.out.print("\nThe " + shapetype + " surface area is " + numberFormat.format(surfaceAreaOutput));
+
+        }
     }
 
-
-
-    //Prompt user for end result for 3D shape
-    static void displayShapeEnd3D(String shapetype, double volumeOnput, double surfaceAreaOnput){
-
-        System.out.print("The " + shapetype + " volume is " + volumeOnput);
-        System.out.print("\nThe " + shapetype + " surface area is " + surfaceAreaOnput);
-    } 
-    
-    
-
+    //Display invalid input when used.
+    static void invalidInput(){
+        System.out.print("You have entered an invalid input.");
+    }
+      
     public static void main (String args []){
 
         //declaration
         char render;
-        int shapeSelector;
-        boolean errorMessage = true;
+        int  shapeSelector;
         char choice = 'y';
 
         //2D declaration
         double area;
-        double parameter;
+        double perimeter;
 
         //3D declaration
         double volume;
         double surfaceArea;
 
-        System.out.print("\n\t==================================");
-        System.out.print("\n\t|   Welcome to Shape Calculator\t |");
-        System.out.print("\n\t|Made possible by Syahir & Amirul|");
-        System.out.print("\n\t==================================");
+
+        /*********This is the first page*************/
+        System.out.print("\n _____________________");
+        System.out.print("\n|  _________________  |");
+        System.out.print("\n| |    Welcome to   | |");
+        System.out.print("\n| |Shape Calculator!| |");
+        System.out.print("\n| |   Made possible | |");
+        System.out.print("\n| |        By       | |");
+        System.out.print("\n| | Syahir & Amirul | |");
+        System.out.print("\n| |_________________| |");
+        System.out.print("\n|  ___ ___ ___   ___  |");
+        System.out.print("\n| | 7 | 8 | 9 | | + | |");
+        System.out.print("\n| |___|___|___| |___| |");
+        System.out.print("\n| | 4 | 5 | 6 | | - | |");
+        System.out.print("\n| |___|___|___| |___| |");
+        System.out.print("\n| | 1 | 2 | 3 | | x | |");
+        System.out.print("\n| |___|___|___| |___| |");
+        System.out.print("\n| | . | 0 | = | | / | |");
+        System.out.print("\n| |___|___|___| |___| |");
+        System.out.print("\n|_____________________|");
 
         //start loop
         do{
+
+            /*
+             * The boolean is in the loop so that the Y/N 
+             * value would be changed to true when the loop
+             * reinitialise.
+             */
+
+            boolean errorMessage = true;
             
             System.out.print("\n\nWould you like to do a calculation on 2D or 3D object?: ");
             render = sc.next().charAt(0);
 
+
+            //IF statement for choosing 2D or 3D object
             if(render == '2'){
 
                 /************ Main menu for 2D Shape ************/
@@ -162,70 +496,93 @@
                 System.out.print("\n\nEnter the shape number: ");
                 shapeSelector = sc.nextInt();
 
+
+                //switch statement to select what type of shape to be calculated
                 switch(shapeSelector){
 
                     case 1: 
                         displayShape("Rectangle");
-                        double rectangleWidth = widthInput();
-                        double rectangleHeight = heightInput();
 
-                        area = rectangleHeight * rectangleWidth;
-                        parameter = Math.pow(rectangleHeight, 2) + Math.pow(rectangleWidth, 2);
+                        double rectangleWidth   = widthInput();
+                        double rectangleHeight  = heightInput();
 
-                        displayShapeEnd2D("Rectangle", area, parameter);
+
+                        //area      = rectangleHeight * rectangleWidth
+                        //perimeter = (rectangleHeight^2)+(rectangleWidth^2)
+                        area      = rectangleHeight * rectangleWidth;
+                        perimeter = Math.pow(rectangleHeight, 2) + Math.pow(rectangleWidth, 2);
+
+                        displayShapeEnd(render,"Rectangle", area, perimeter);
                     break;
 
 
 
                     case 2: 
                         displayShape("Square");
-                        double squareWidth = widthInput();
-                        double squareHeight = heightInput();
 
-                        area = squareHeight * squareWidth;
-                        parameter = Math.pow(squareHeight, 2) + Math.pow(squareWidth, 2);
+                        double squareWidth  = widthInput();
 
-                        displayShapeEnd2D("Square", area, parameter);
+                        //area      = rectangleHeight * rectangleWidth
+                        //perimeter = (rectangleHeight^2)+(rectangleWidth^2)
+                        area = squareWidth * squareWidth;
+                        perimeter = Math.pow(squareWidth, 2) + Math.pow(squareWidth, 2);
+
+                        displayShapeEnd(render, "Square", area, perimeter);
                     break;
 
 
 
                     case 3: 
                         displayShape("Triangle");
-                        double triangleLength = lengthInput();
-                        double triangleHeight = heightInput();
 
-                        area = ((triangleLength * triangleHeight)/2);
-                        parameter = triangleHeight + triangleLength;
+                        double triangleS1 = triangleSide(1);
+                        double triangleS2 = triangleSide(2);
+                        double triangleS3 = triangleSide(3);
 
-                        displayShapeEnd2D("Triangle", area, parameter);
+                        //area      = (triangleS1 + triangleS2 + triangleS3)/2
+                        //perimeter = triangleS1 + triangleS2 + triangleS3
+                        area      = (triangleS1 + triangleS2 + triangleS3) /2;
+                        perimeter = triangleS1 + triangleS2 + triangleS3;
+
+                        displayShapeEnd(render, "Triangle", area, perimeter);
                     break;
 
 
 
                     case 4: 
                         displayShape("Circle");
+
                         double circleRadius = radiusInput();
 
-                        area = Math.PI * circleRadius;
-                        parameter = 2*Math.PI*(circleRadius);
+                        //area      = PI *(circleRadius^2)
+                        //perimeter = 2 * PI * circleRadius
+                        area      = Math.PI * Math.pow(circleRadius, 2);
+                        perimeter = 2 * Math.PI * circleRadius ;
 
-                        displayShapeEnd2D("Circle", area, parameter);
+                        displayShapeEnd(render, "Circle", area, perimeter);
                     break;
 
 
 
                     case 5: 
                         displayShape("Trapezium");
-                        double trapeziumTop = topInput();
-                        double trapeziumBase = baseInput();
-                        double trapeziumHeight = heightInput();
 
-                        area = (((trapeziumTop+trapeziumBase)/2)*trapeziumHeight);
-                        parameter = trapeziumTop+trapeziumBase+trapeziumHeight;
+                        double trapeziumTop     = topInput();
+                        double trapeziumBase    = baseInput();
+                        double trapeziumSide1   = sideInput();
+                        double trapeziumSide2   = side2Input();
+                        double trapeziumHeight  = heightInput();
 
-                        displayShapeEnd2D("Trapezium", area, parameter);
+                        //area      = (trapeziumTop + trapeziumBase) * trapeziumHeight/2
+                        //perimeter = trapeziumTop + trapeziumBase + trapeziumSide1 + trapeziumSide2
+                        area      = (trapeziumTop + trapeziumBase) * trapeziumHeight /2 ;
+                        perimeter = trapeziumTop + trapeziumBase + trapeziumSide1 + trapeziumSide2;
+
+                        displayShapeEnd(render, "Trapezium", area, perimeter);
                     break;
+
+                    default:
+                    invalidInput();
                 }
 
 
@@ -238,11 +595,9 @@
                 System.out.print("3D shape has been selected!");
                 System.out.print("\n\n-----------------------------");
                 System.out.print("\nPlease select your shape");
-                System.out.print("\n1. Cylinder");
-                System.out.print("\n2. Pyramid");
+                System.out.print("\n1. Cylinder\t4. Cuboid");
+                System.out.print("\n2. Pyramid\t5. Cone");
                 System.out.print("\n3. Sphere");
-                System.out.print("\n4. Cuboid");
-                System.out.print("\n5. Cone");
                 System.out.print("\n-----------------------------");
                 System.out.print("\nEnter the shape number: ");
                 shapeSelector = sc.nextInt();
@@ -251,88 +606,125 @@
 
                     case 1: 
                         displayShape("Cylinder");
+
                         double cylinderHeight = heightInput();
                         double cylinderRadius = radiusInput();
 
-                        volume = Math.PI * ((cylinderRadius * cylinderRadius) * cylinderHeight);
-                        surfaceArea = (2 * Math.PI * cylinderRadius * cylinderHeight) + (2 * Math.PI * (cylinderRadius * cylinderRadius));
-                        parameter =  2 * ( Math.PI * ((cylinderRadius * 2) + cylinderHeight));
+                        //volume      = PI * ((cylinderRadius * cylinderRadius) * cylinderHeight)
+                        //surfaceArea = (2 * PI * cylinderRadius * cylinderHeight) + 
+                        //              (2 * PI * cylinderRadius * cylinderRadius)
+                        volume      = Math.PI * ((cylinderRadius * cylinderRadius) * cylinderHeight);
+                        surfaceArea = (2 * Math.PI * cylinderRadius * cylinderHeight) + 
+                                      (2 * Math.PI * cylinderRadius * cylinderRadius);
 
-                        displayShapeEnd3D("Cylinder", surfaceArea,parameter);
+                        displayShapeEnd(render, "Cylinder", surfaceArea, volume);
                     break;
                     
 
 
                     case 2: 
                         displayShape("Pyramid");
-                        double pyramidWidth = widthInput();
+
+                        double pyramidBase   = baseInput();
                         double pyramidHeight = heightInput();
-                        double pyramidBase = baseInput();
+                        double pyramidWidth  = widthInput();
 
-                        volume = (pyramidBase * pyramidWidth * pyramidHeight) / 3;
-                        surfaceArea = (pyramidBase * pyramidWidth) + (pyramidBase * Math.sqrt(((pyramidWidth / 2) * (pyramidWidth / 2)) + (pyramidHeight * pyramidHeight))) + (pyramidWidth * Math.sqrt(((1 / 2) * (1 / 2)) + (pyramidHeight * pyramidHeight)));
+                        //volume      = (pyramidBase * pyramidWidth * pyramidHeight) / 3
+                        //surfaceArea = (pyramidBase * pyramidWidth) + 
+                        //              (pyramidBase * Math.sqrt(((pyramidWidth / 2) * 
+                        //              (pyramidWidth / 2)) + (pyramidHeight * pyramidHeight))) +
+                        //              (pyramidWidth * Math.sqrt(((1 / 2) * (1 / 2)) +
+                        //              (pyramidHeight * pyramidHeight)))
+                        volume      = (pyramidBase * pyramidWidth * pyramidHeight) / 3;
+                        surfaceArea = (pyramidBase * pyramidWidth) + 
+                                      (pyramidBase * Math.sqrt(((pyramidWidth / 2) * 
+                                      (pyramidWidth / 2)) + (pyramidHeight * pyramidHeight))) + 
+                                      (pyramidWidth * Math.sqrt(((1 / 2) * (1 / 2)) + 
+                                      (pyramidHeight * pyramidHeight)));
 
-                        displayShapeEnd3D("Pyramid", surfaceArea, volume);
+                        displayShapeEnd(render, "Pyramid", surfaceArea, volume);
                     break;
 
 
                     
                     case 3: 
                         displayShape("Sphere");
+
                         double sphereRadius = radiusInput();
 
-                        volume = 4 / 3 * (Math.PI * (sphereRadius * sphereRadius * sphereRadius));
+                        //volume      = 4 / 3 * (Math.PI * (sphereRadius * sphereRadius * sphereRadius))
+                        //surfaceArea = 4 * (Math.PI * (sphereRadius * sphereRadius))
+                        volume      = 4 / 3 * (Math.PI * (sphereRadius * sphereRadius * sphereRadius));
                         surfaceArea = 4 * (Math.PI * (sphereRadius * sphereRadius));
 
-                        displayShapeEnd3D("Sphere", surfaceArea, volume);
+                        displayShapeEnd(render, "Sphere", surfaceArea, volume);
                     break;
 
 
 
                     case 4: 
                         displayShape("Cuboid");
-                        double cuboidBase = radiusInput();
+
+                        double cuboidBase   = baseInput();
                         double cuboidHeight = heightInput();
-                        double cuboidWidth = widthInput();
+                        double cuboidWidth  = widthInput();
 
-                        surfaceArea = (2 * cuboidBase * cuboidWidth) + (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth);
+                        //volume      = cuboidBase * cuboidHeight * cuboidWidth
+                        //surfaceArea = (2 * cuboidBase * cuboidWidth) + 
+                        //              (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth)
+                        volume      = cuboidBase * cuboidHeight * cuboidWidth;
+                        surfaceArea = (2 * cuboidBase * cuboidWidth) + 
+                                      (2 * cuboidBase * cuboidHeight) + (2 * cuboidHeight * cuboidWidth);
 
-                        displayShapeEnd3D("Cuboid", surfaceArea, 0);
+                        displayShapeEnd(render, "Cuboid", surfaceArea, volume);
                     break;
 
 
 
                     case 5: 
                         displayShape("Cone");
+
                         double coneRadius = radiusInput();
                         double coneHeight = heightInput();
 
-                        area = Math.PI * coneRadius * (coneRadius + Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)));
-                        parameter = 0;
+                        //volume = Math.PI * ((coneRadius * coneRadius) * (coneHeight / 3))
+                        //surfaceArea = Math.PI * coneRadius * (coneRadius + 
+                        //              Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)));
+                        volume      = Math.PI * ((coneRadius * coneRadius) * (coneHeight / 3));
+                        surfaceArea = Math.PI * coneRadius * (coneRadius + 
+                                      Math.sqrt((coneHeight * coneHeight) + (coneRadius * coneRadius)));
 
-                        displayShapeEnd3D("Cone", area, parameter);
+                        displayShapeEnd(render, "Cone", surfaceArea, volume);
                     break;
+
+                    default: 
+                    invalidInput();
                 }
 
 
             }
 
+            else{
+                invalidInput();
+            }
+
             
             while(errorMessage){
 
-                System.out.print("\nDo you wish to continue? [Y or N]: ");
+                System.out.print("\nWould you like to continue? [Y or N]: ");
                 choice = sc.next().charAt(0);
-                if (choice=='y' || choice =='Y' ||choice=='n' || choice =='N')
-                errorMessage = false;
+
+                if (choice == 'y' || choice == 'Y' ||choice == 'n' || choice == 'N')
+                    errorMessage = false;
 
                 else {
-                System.out.print("Invalid Input!");
-                errorMessage = true;}
+                    invalidInput();
+                    }
             }
 
         }while(choice == 'Y' || choice == 'y');
 
-        System.out.print("Thank you for using Shape Calculator, have a nice day!");
+        System.out.print("\nThank you for using Shape Calculator, have a nice day!");
 
 
     }
