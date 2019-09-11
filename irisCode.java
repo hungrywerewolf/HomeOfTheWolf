@@ -16,7 +16,7 @@
 
 import java.util.*;
 
-public class geometricCalculator
+public class irisCode
 {
     public static void main (String args []){
 
